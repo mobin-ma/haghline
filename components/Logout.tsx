@@ -10,7 +10,7 @@ export default function Logout() {
 
   const handleLogout = () => {
     dispatch(logout());
-    router.push("/login");
+    router.push("/authpage");
   };
   return (
     <div>

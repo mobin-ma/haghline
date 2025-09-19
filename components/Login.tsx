@@ -13,7 +13,10 @@ type LoginProps = {
 };
 
 export default function Login({ toggleMode }: LoginProps) {
-  const transition: Transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
+  const transition: Transition = {
+    duration: 0.5,
+    ease: [0.43, 0.13, 0.23, 0.96],
+  };
 
   const dispatch = useAppDispatch();
   const typeUser = useSelector((state: RootState) => state.type.typeUser);
@@ -133,6 +136,7 @@ export default function Login({ toggleMode }: LoginProps) {
             <input
               type="number"
               placeholder="شماره تلفن"
+              disabled={true}
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
