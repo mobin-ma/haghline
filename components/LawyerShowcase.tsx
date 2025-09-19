@@ -28,7 +28,7 @@ export default function LawyerShowcase() {
           </p>
         </motion.div>
         <motion.div
-          className="w-full flex flex-col md:flex-row justify-between items-center gap-5 md:gap-10 p-5 md:p-20"
+          className="w-full flex flex-col lg:flex-row justify-between items-center gap-5 md:gap-10 p-5 md:p-20"
           initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -102,7 +102,7 @@ export default function LawyerShowcase() {
               </div>
             </div>
           </div>
-          <div className="bg-white dark:bg-amber-500 w-2 h-screen hidden md:block"></div>
+          <div className="bg-white dark:bg-amber-500 w-2 h-screen hidden lg:block"></div>
           <div className="w-full flex flex-col gap-5 md:gap-10 justify-center items-center">
             <div className="flex justify-center items-center gap-3 bg-white/20 dark:bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
               <div>

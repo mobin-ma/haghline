@@ -19,7 +19,7 @@ export default function AuthPage() {
         <nav className="fixed top-5 left-5 z-50">
           <ThemeToggle />
         </nav>
-        <div className="auth-bg w-full h-screen">
+        <div className="auth-bg w-full min-h-screen">
           <div className="w-full h-full hidden bg-zinc-900/50 dark:bg-white/40 backdrop-blur md:flex justify-center items-center">
             <AnimatePresence mode="wait">
               {mode === "login" ? (
