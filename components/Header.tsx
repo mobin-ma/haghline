@@ -8,7 +8,7 @@ import { AnimatePresence } from "motion/react";
 import ThemeToggle from "./ThemeToggle";
 
 interface HeaderProps {
-  welcomeRef: React.RefObject<HTMLDivElement> | null;
+  welcomeRef: React.RefObject<HTMLDivElement | null >;
 }
 
 const sections = [
