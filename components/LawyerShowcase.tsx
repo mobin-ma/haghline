@@ -35,7 +35,7 @@ export default function LawyerShowcase() {
         viewport={{ once: true, amount: 0.2 }}
         >
           <div className="w-full flex flex-col gap-5 md:gap-10 justify-center items-center">
-            <div className="flex justify-center items-center gap-3 bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
+            <div className="flex justify-center items-center gap-3 bg-white/20 dark:bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
               <div>
                 <Image
                   src={lawyer1}
@@ -49,7 +49,7 @@ export default function LawyerShowcase() {
                 <h3 className="font-bold text-2xl md:text-4xl text-white mb-3 md:mb-5">
                   مبین مددی
                 </h3>
-                <p className="text-base text-gray-400 line-clamp-3 md:line-clamp-none">
+                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-none">
                   دکتر مبین مددی، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -57,7 +57,7 @@ export default function LawyerShowcase() {
                 </p>
               </div>
             </div>
-            <div className="flex justify-center items-center gap-3 bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
+            <div className="flex justify-center items-center gap-3 bg-white/20 dark:bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
               <div>
                 <Image
                   src={lawyer4}
@@ -71,7 +71,7 @@ export default function LawyerShowcase() {
                 <h3 className="font-bold text-3xl text-white mb-3 md:mb-5">
                   مریم صادقی
                 </h3>
-                <p className="text-base text-gray-400 line-clamp-3 md:line-clamp-none">
+                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-none">
                   دکتر مریم صادقی وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -79,7 +79,7 @@ export default function LawyerShowcase() {
                 </p>
               </div>
             </div>
-            <div className="flex justify-center items-center gap-3 bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
+            <div className="flex justify-center items-center gap-3 bg-white/20 dark:bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
               <div>
                 <Image
                   src={lawyer2}
@@ -93,7 +93,7 @@ export default function LawyerShowcase() {
                 <h3 className="font-bold text-3xl text-white mb-3 md:mb-5">
                   امیر شکری
                 </h3>
-                <p className="text-base text-gray-400 line-clamp-3 md:line-clamp-none">
+                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-none">
                   دکتر امیر شکری، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -102,9 +102,9 @@ export default function LawyerShowcase() {
               </div>
             </div>
           </div>
-          <div className="bg-white w-1 h-screen hidden md:block"></div>
+          <div className="bg-white dark:bg-amber-500 w-2 h-screen hidden md:block"></div>
           <div className="w-full flex flex-col gap-5 md:gap-10 justify-center items-center">
-            <div className="flex justify-center items-center gap-3 bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
+            <div className="flex justify-center items-center gap-3 bg-white/20 dark:bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
               <div>
                 <Image
                   src={lawyer5}
@@ -118,7 +118,7 @@ export default function LawyerShowcase() {
                 <h3 className="font-bold text-3xl text-white mb-3 md:mb-5">
                   نگین ثابتی
                 </h3>
-                <p className="text-base text-gray-400 line-clamp-3 md:line-clamp-none">
+                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-none">
                   دکتر نگین ثابتی، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -126,7 +126,7 @@ export default function LawyerShowcase() {
                 </p>
               </div>
             </div>
-            <div className="flex justify-center items-center gap-3 bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
+            <div className="flex justify-center items-center gap-3 bg-white/20 dark:bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
               <div>
                 <Image
                   src={lawyer3}
@@ -140,7 +140,7 @@ export default function LawyerShowcase() {
                 <h3 className="font-bold text-3xl text-white mb-3 md:mb-5">
                   محمد اکبری
                 </h3>
-                <p className="text-base text-gray-400 line-clamp-3 md:line-clamp-none">
+                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-none">
                   دکتر محمد اکبری، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -148,7 +148,7 @@ export default function LawyerShowcase() {
                 </p>
               </div>
             </div>
-            <div className="flex justify-center items-center gap-3 bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
+            <div className="flex justify-center items-center gap-3 bg-white/20 dark:bg-black/20 backdrop-blur p-2 md:p-5 rounded-[26px] md:rounded-[52px] cursor-pointer">
               <div>
                 <Image
                   src={lawyer6}
@@ -162,7 +162,7 @@ export default function LawyerShowcase() {
                 <h3 className="font-bold text-3xl text-white mb-3 md:mb-5">
                   مهسا محمدی
                 </h3>
-                <p className="text-base text-gray-400 line-clamp-3 md:line-clamp-none">
+                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-none">
                   دکتر مهسا محمدی، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و

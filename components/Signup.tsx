@@ -79,7 +79,7 @@ export default function Signup({ toggleMode }: SignupProps) {
       initial={{ opacity: 0, translateY: -100 }}
       animate={{ opacity: 1, translateY: 0 }}
       transition={transition}
-      className="w-full md:w-4/5 lg:w-3/5 mx-4 md:mx-0 shadow-lg shadow-zinc-900/50 flex flex-col justify-center items-center gap-5 md:gap-10 p-5 bg-white rounded-2xl"
+      className="w-full md:w-4/5 lg:w-3/5 mx-4 md:mx-0 shadow-lg shadow-zinc-900/50 flex flex-col justify-center items-center gap-5 md:gap-10 p-5 bg-white dark:bg-zinc-900 rounded-2xl"
       id="signup"
     >
       <div className="w-full text-center">
@@ -97,7 +97,7 @@ export default function Signup({ toggleMode }: SignupProps) {
               type="number"
               placeholder="شماره تلفن"
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
             />
             {typeUser === "individual" ? (
               <>
@@ -105,13 +105,13 @@ export default function Signup({ toggleMode }: SignupProps) {
                   type="text"
                   placeholder="نام"
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
                 />
                 <input
                   type="text"
                   placeholder="نام خانوادگی"
                   onChange={(e) => setLastName(e.target.value)}
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
                 />
               </>
             ) : (
@@ -119,7 +119,7 @@ export default function Signup({ toggleMode }: SignupProps) {
                 type="text"
                 placeholder="نام شرکت"
                 onChange={(e) => setCompanyName(e.target.value)}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
               />
             )}
             <div className="flex gap-4 w-full justify-center">
@@ -129,6 +129,7 @@ export default function Signup({ toggleMode }: SignupProps) {
                   name="userType"
                   checked={typeUser === "individual"}
                   onChange={() => dispatch(setUser("individual"))}
+                  className="appearance-none w-3 h-3 rounded-full border-0 bg-zinc-500 dark:bg-amber-400 checked:bg-zinc-900 dark:checked:bg-amber-600 checked:scale-150 transition-all duration-300"
                 />
                 حقیقی
               </label>
@@ -139,6 +140,7 @@ export default function Signup({ toggleMode }: SignupProps) {
                   name="userType"
                   checked={typeUser === "legal"}
                   onChange={() => dispatch(setUser("legal"))}
+                  className="appearance-none w-3 h-3 rounded-full border-0 bg-zinc-500 dark:bg-amber-400 checked:bg-zinc-900 dark:checked:bg-amber-600 checked:scale-150 transition-all duration-300"
                 />
                 حقوقی
               </label>
@@ -146,7 +148,7 @@ export default function Signup({ toggleMode }: SignupProps) {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors"
+              className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:border-2 dark:border-amber-500 dark:hover:border-amber-500 dark:hover:bg-transparent"
             >
               {loading ? "در حال ثبت نام..." : "ثبت نام"}
             </button>
@@ -161,18 +163,18 @@ export default function Signup({ toggleMode }: SignupProps) {
               placeholder="شماره تلفن"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
             />
             <input
               type="number"
               placeholder="کد تایید"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
             />
             <button
               type="submit"
-              className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors"
+              className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:border-2 dark:border-amber-500 dark:hover:border-amber-500 dark:hover:bg-transparent"
             >
               تایید کد
             </button>
@@ -180,11 +182,11 @@ export default function Signup({ toggleMode }: SignupProps) {
         )}
       </div>
       <div className="w-full text-center">
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-gray-200">
           قبلا ثبت نام کرده اید؟{" "}
           <span
             onClick={toggleMode}
-            className="text-zinc-900 font-bold cursor-pointer transition-colors hover:text-zinc-600 hover:underline"
+            className="text-zinc-900 dark:text-amber-400 font-bold cursor-pointer transition-colors hover:text-zinc-600 dark:hover:text-amber-600 hover:underline"
           >
             ورورد
           </span>

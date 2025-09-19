@@ -7,6 +7,7 @@ import { toggleMode } from "@/store/authSlice";
 import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 import PublicRoute from "@/components/PublicRoute";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function AuthPage() {
   const mode = useSelector((state: RootState) => state.auth.mode);
@@ -15,13 +16,16 @@ export default function AuthPage() {
   return (
     <PublicRoute>
       <div className="w-full h-screen flex">
+        <nav className="fixed top-5 left-5 z-50">
+          <ThemeToggle />
+        </nav>
         <div className="auth-bg w-full h-screen">
-          <div className="w-full h-full hidden bg-zinc-900/50 backdrop-blur md:flex justify-center items-center">
+          <div className="w-full h-full hidden bg-zinc-900/50 dark:bg-white/40 backdrop-blur md:flex justify-center items-center">
             <AnimatePresence mode="wait">
               {mode === "login" ? (
                 <motion.p
                   key="login-text"
-                  className="text-4xl/13 text-white font-bold px-20 text-right"
+                  className="text-4xl/13 text-white dark:text-zinc-900 font-bold px-20 text-right"
                   initial={{ opacity: 0, filter: "blur(10px)" }}
                   animate={{ opacity: 1, filter: "blur(0px)" }}
                   exit={{ opacity: 0, filter: "blur(10px)" }}
@@ -32,7 +36,7 @@ export default function AuthPage() {
               ) : (
                 <motion.p
                   key="signup-text"
-                  className="text-4xl/13 text-white font-bold px-20 text-right"
+                  className="text-4xl/13 text-white dark:text-zinc-900 font-bold px-20 text-right"
                   initial={{ opacity: 0, filter: "blur(10px)" }}
                   animate={{ opacity: 1, filter: "blur(0px)" }}
                   exit={{ opacity: 0, filter: "blur(10px)" }}
@@ -45,7 +49,7 @@ export default function AuthPage() {
             </AnimatePresence>
           </div>
         </div>
-        <div className="w-full absolute inset-0 md:relative flex justify-center md:bg-gray-300/70 items-center">
+        <div className="w-full absolute inset-0 md:relative flex justify-center md:bg-gray-300/70 md:dark:bg-zinc-800 items-center">
           {mode === "login" ? (
             <Login toggleMode={() => dispatch(toggleMode())} />
           ) : (

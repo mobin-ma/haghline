@@ -28,7 +28,7 @@ export default function Hero() {
       <Link
         href="/authpage"
         onClick={() => dispatch(setMode("login"))}
-        className="bg-zinc-800 text-white font-bold text-sm md:text-base p-2 md:p-3 border border-gray-800 shadow-2xl shadow-gray-500/50 cursor-pointer rounded-3xl transition-colors hover:bg-white hover:text-black"
+        className="bg-zinc-800 dark:bg-amber-500 text-white font-bold text-sm md:text-base p-2 md:p-3 border border-gray-800 dark:border-zinc-900 shadow-2xl shadow-gray-500/50 dark:shadow-gray-500/20 cursor-pointer rounded-3xl transition-colors hover:bg-white dark:hover:bg-zinc-800 hover:text-black dark:hover:text-white"
       >
         ثبت پرونده
       </Link>

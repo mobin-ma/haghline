@@ -30,43 +30,43 @@ export default function HowItWorks() {
         viewport={{ once: true, amount: 0.2 }}
       >
         <div className="w-full flex justify-between gap-5 items-start cursor-pointer">
-          <span className="relative after:absolute after:bg-zinc-900 after:w-1 after:h-30 after:top-10 after:right-5">
-            <p className="bg-zinc-900 w-10 h-10 rounded-full text-white text-3xl font-bold flex justify-center items-center">
+          <span className="relative after:absolute after:bg-zinc-900 dark:after:bg-amber-600 after:w-1 after:h-30 after:top-10 after:right-5">
+            <p className="bg-zinc-900 dark:bg-amber-600 w-10 h-10 rounded-full text-white text-3xl font-bold flex justify-center items-center">
               1
             </p>
           </span>
           <div className="flex flex-col justify-center items-start w-80">
-            <p className="text-zinc-900 font-bold text-nowrap text-lg">
+            <p className="text-zinc-900 dark:text-white font-bold text-nowrap text-lg">
               ثبت پرونده
             </p>
-            <span className="text-gray-600">
+            <span className="text-gray-600 dark:text-amber-400">
               📄 کاربر اطلاعات اولیه پرونده رو وارد می‌کنه و درخواستش ثبت میشه
             </span>
           </div>
         </div>
         <div className="w-full flex justify-between gap-5 items-start cursor-pointer">
-          <span className="relative after:absolute after:bg-zinc-900 after:w-1 after:h-30 after:top-10 after:right-5">
-            <p className="bg-zinc-900 w-10 h-10 rounded-full text-white text-3xl font-bold flex justify-center items-center">
+          <span className="relative after:absolute after:bg-zinc-900 dark:after:bg-amber-600 after:w-1 after:h-30 after:top-10 after:right-5">
+            <p className="bg-zinc-900 dark:bg-amber-600 w-10 h-10 rounded-full text-white text-3xl font-bold flex justify-center items-center">
               2
             </p>
           </span>
           <div className="flex flex-col justify-center items-start w-80">
-            <p className="text-zinc-900 font-bold text-nowrap">انتخاب وکیل</p>
-            <span className="text-gray-600">
+            <p className="text-zinc-900 font-bold text-nowrap dark:text-white">انتخاب وکیل</p>
+            <span className="text-gray-600 dark:text-amber-400">
               ⚖️ از بین وکلای پیشنهادی بر اساس تخصص و امتیاز، کاربر بهترین گزینه
               رو انتخاب می‌کنه
             </span>
           </div>
         </div>
         <div className="w-full flex justify-between gap-5 items-start cursor-pointer">
-          <span className="relative after:absolute after:bg-zinc-900 after:w-1 after:h-30 after:top-10 after:right-5">
-            <p className="bg-zinc-900 w-10 h-10 rounded-full text-white text-3xl font-bold flex justify-center items-center">
+          <span className="relative after:absolute after:bg-zinc-900 dark:after:bg-amber-600 after:w-1 after:h-30 after:top-10 after:right-5">
+            <p className="bg-zinc-900 dark:bg-amber-600 w-10 h-10 rounded-full text-white text-3xl font-bold flex justify-center items-center">
               3
             </p>
           </span>
           <div className="flex flex-col justify-center items-start w-80">
-            <p className="text-zinc-900 font-bold text-nowrap">ارتباط آنلاین</p>
-            <span className="text-gray-600">
+            <p className="text-zinc-900 dark:text-white font-bold text-nowrap">ارتباط آنلاین</p>
+            <span className="text-gray-600 dark:text-amber-400">
               💬 کاربر می‌تونه از طریق چت یا تماس ویدیویی با وکیل ارتباط بگیره و
               مدارک رو ارسال کنه
             </span>
@@ -74,13 +74,13 @@ export default function HowItWorks() {
         </div>
         <div className="w-full flex justify-between gap-5 items-start cursor-pointer">
           <span className="relative ">
-            <p className="bg-zinc-900 w-10 h-10 rounded-full text-white text-3xl font-bold flex justify-center items-center">
+            <p className="bg-zinc-900 dark:bg-amber-600 w-10 h-10 rounded-full text-white text-3xl font-bold flex justify-center items-center">
               4
             </p>
           </span>
           <div className="flex flex-col justify-center items-start w-80">
-            <p className="text-zinc-900 font-bold text-nowrap">پیگیری پرونده</p>
-            <span className="text-gray-600">
+            <p className="text-zinc-900 dark:text-white font-bold text-nowrap">پیگیری پرونده</p>
+            <span className="text-gray-600 dark:text-amber-400">
               📊 وضعیت پرونده به صورت آنلاین و لحظه‌ای قابل مشاهده و پیگیری
               خواهد بود
             </span>

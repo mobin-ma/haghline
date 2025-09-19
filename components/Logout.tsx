@@ -16,7 +16,7 @@ export default function Logout() {
     <div>
       <button
         onClick={handleLogout}
-        className="bg-rose-400 border-2 border-rose-600 text-rose-900 px-5 py-1 text-center"
+        className=" text-rose-600 font-bold text-center"
       >
         حروج
       </button>

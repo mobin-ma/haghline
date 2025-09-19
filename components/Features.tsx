@@ -15,29 +15,29 @@ export default function Features() {
       title: "دسترسی آسان به وکیل در هر زمان و مکان",
       description:
         "با پلتفرم ما می‌توانید بدون نیاز به مراجعه حضوری، در هر ساعت شبانه‌روز به وکلای متخصص دسترسی داشته باشید و مشاوره آنلاین دریافت کنید",
-      icon: <FaAccessibleIcon className="text-3xl md:text-6xl text-zinc-900" />,
+      icon: <FaAccessibleIcon className="text-3xl md:text-6xl text-zinc-900 dark:text-white" />,
     },
     {
       title: "شفافیت در رزومه و تخصص وکلا",
       description:
         "تمامی وکلا دارای پروفایل شفاف شامل رزومه، تجربه و تخصص هستند تا بتوانید با اطمینان کامل وکیل مناسب خود را انتخاب کنید",
-      icon: <BsTransparency className="text-3xl md:text-6xl text-zinc-900" />,
+      icon: <BsTransparency className="text-3xl md:text-6xl text-zinc-900 dark:text-white" />,
     },
     {
       title: "مدیریت پرونده‌ها و مدارک به صورت آنلاین",
       description:
         "پرونده‌ها و مدارک حقوقی خود را به راحتی در پلتفرم ثبت و مدیریت کنید و وضعیت پرونده را به صورت آنلاین پیگیری کنید",
-      icon: <FaFile className="text-3xl md:text-6xl text-zinc-900" />,
+      icon: <FaFile className="text-3xl md:text-6xl text-zinc-900 dark:text-white" />,
     },
     {
       title: "کاهش هزینه و صرفه‌جویی در زمان",
       description:
         "با مشاوره و پیگیری آنلاین، زمان و هزینه رفت‌وآمد کاهش یافته و سریع‌تر به حل امور حقوقی خود می‌رسید",
-      icon: <MdSavings className="text-3xl md:text-6xl text-zinc-900" />,
+      icon: <MdSavings className="text-3xl md:text-6xl text-zinc-900 dark:text-white" />,
     },
   ];
   return (
-    <div className="features-bg h-screen" id="features">
+    <div className="features-bg max-h-screen" id="features">
       <div className="w-full h-full bg-zinc-700/80 flex flex-col justify-center items-center md:pt-24">
         <motion.div
           className="flex justify-center items-center flex-col md:mb-10 text-white"
@@ -62,7 +62,7 @@ export default function Features() {
         >
           {cards.map((card, i) => (
             <div
-              className="grow basis-[200] bg-white/30 transition-all hover:scale-110 hover:bg-white/70 cursor-pointer backdrop-blur m-5 p-3 text-center rounded-2xl flex flex-col justify-center items-center gap-4 md:ap-10"
+              className="grow basis-[200px] bg-white/30 dark:bg-black/30 dark:text-white transition-all hover:scale-110 hover:bg-white/70 dark:hover:bg-amber-500/70 cursor-pointer backdrop-blur m-5 p-3 text-center rounded-2xl flex flex-col justify-center items-center gap-4 md:mb-10"
               key={i}
             >
               <h2 className="text-base md:text-2xl text-wrap font-bold">{card.title}</h2>

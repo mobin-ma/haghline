@@ -20,7 +20,7 @@ export const registerUser = createAsyncThunk<
 >("auth/registerUser", async (data, { rejectWithValue }) => {
   try {
     const res = await api.post(
-      "http://135.125.238.202:9800/api/users/register/",
+      "users/register/",
       data
     );
     return res.data;
@@ -45,7 +45,7 @@ export const loginUser = createAsyncThunk<
 >("auth/loginUser", async (data, { rejectWithValue }) => {
   try {
     const res = await api.post(
-      "http://135.125.238.202:9800/api/users/login/",
+      "users/login/",
       data
     );
     return res.data;
@@ -71,7 +71,7 @@ export const verifyOtpUser = createAsyncThunk<
 >("auth/verifyOtpUser", async (data, { rejectWithValue }) => {
   try {
     const res = await api.post(
-      "http://135.125.238.202:9800/api/users/verify-otp/",
+      "users/verify-otp/",
       data
     );
     return res.data;
@@ -92,7 +92,7 @@ export const refreshToken = createAsyncThunk<
 >("auth/refreshToken", async (data, { rejectWithValue }) => {
   try {
     const res = await api.post(
-      "http://135.125.238.202:9800/api/users/token/refresh/",
+      "users/token/refresh/",
       data
     );
     return res.data;

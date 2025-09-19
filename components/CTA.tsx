@@ -23,7 +23,7 @@ export default function CTA() {
       <Link
         href="/authpage"
         onClick={() => dispatch(setMode("login"))}
-        className="border-2 border-zinc-900 text-sm md:text-base p-2 md:p-3 rounded-4xl font-bold transition-colors hover:bg-zinc-900 hover:text-white cursor-pointer"
+        className="border-2 border-zinc-900 dark:border-amber-500 text-sm md:text-base p-2 md:p-3 rounded-4xl font-bold transition-colors hover:bg-zinc-900 dark:hover:bg-amber-500 hover:text-white cursor-pointer"
       >
         بزن بریم!
       </Link>

@@ -1,9 +1,8 @@
 // lib/axios.ts
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
-import { store } from "@/store/store";
+import { getStore } from "@/store/storeAccess";
 import { logout, setToken } from "@/store/authSlice";
-import type { TokenPayload } from "@/store/authThunks"; 
-
+import type { TokenPayload } from "@/store/authThunks";
 
 const api = axios.create({
   baseURL: "http://135.125.238.202:9800/api/",
@@ -13,7 +12,6 @@ const api = axios.create({
   },
 });
 
-
 const refreshClient = axios.create({
   baseURL: "http://135.125.238.202:9800/api/",
   timeout: 10000,
@@ -22,9 +20,7 @@ const refreshClient = axios.create({
   },
 });
 
-
 let isRefreshing = false;
-
 
 let failedQueue: {
   resolve: (value?: unknown) => void;
@@ -40,18 +36,15 @@ function processQueue(error: any, token: string | null = null) {
   failedQueue = [];
 }
 
-
 api.interceptors.request.use(
   (config) => {
     try {
-      const state = store.getState();
-      const access = state.auth.token?.access; 
+      const state = getStore().getState();
+      const access = state.auth.token?.access;
       if (access && config && config.headers) {
         config.headers["Authorization"] = `Bearer ${access}`;
       }
-    } catch (e) {
-
-    }
+    } catch (e) {}
     return config;
   },
   (error) => Promise.reject(error)
@@ -66,16 +59,14 @@ api.interceptors.response.use(
 
     if (!originalRequest) return Promise.reject(error);
     if (originalRequest.url?.includes("/users/token/refresh/")) {
-      store.dispatch(logout());
+      getStore().dispatch(logout());
       return Promise.reject(error);
     }
 
     if (error.response?.status === 401 && !originalRequest._retry) {
-
       originalRequest._retry = true;
 
       if (isRefreshing) {
-
         return new Promise((resolve, reject) => {
           failedQueue.push({ resolve, reject, originalRequest });
         })
@@ -91,8 +82,7 @@ api.interceptors.response.use(
       isRefreshing = true;
 
       try {
-
-        const state = store.getState();
+        const state = getStore().getState();
         const refresh =
           state.auth.token?.refresh ||
           (typeof window !== "undefined"
@@ -100,11 +90,9 @@ api.interceptors.response.use(
             : null);
 
         if (!refresh) {
-
-          store.dispatch(logout());
+          getStore().dispatch(logout());
           return Promise.reject(error);
         }
-
 
         const refreshRes: AxiosResponse<TokenPayload> =
           await refreshClient.post("/users/token/refresh/", { refresh });
@@ -116,15 +104,13 @@ api.interceptors.response.use(
         }
 
         try {
-          store.dispatch(setToken(newTokens));
+          getStore().dispatch(setToken(newTokens));
         } catch (e) {
-            return e;
+          return e;
         }
 
-     
         processQueue(null, newTokens.access);
 
-     
         if (originalRequest.headers) {
           originalRequest.headers[
             "Authorization"
@@ -133,9 +119,8 @@ api.interceptors.response.use(
 
         return api(originalRequest);
       } catch (err) {
-   
         processQueue(err, null);
-        store.dispatch(logout());
+        getStore().dispatch(logout());
         return Promise.reject(err);
       } finally {
         isRefreshing = false;

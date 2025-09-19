@@ -11,7 +11,7 @@ export default function Dashboard() {
   console.log(typeUser);
 
   return (
-    <div>
+    <div className="w-full">
       {typeUser === "individual" ? (
         <RealUserDashboard />
       ) : (
