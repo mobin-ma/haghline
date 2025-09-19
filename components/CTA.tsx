@@ -6,7 +6,7 @@ import { setMode } from "@/store/authSlice";
 import * as motion from "motion/react-client";
 
 export default function CTA() {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   return (
     <motion.div
       className="flex flex-col justify-center items-center gap-6 mb-24 pt-14 md:mb-50 md:pt-28"

@@ -44,7 +44,9 @@ api.interceptors.request.use(
       if (access && config && config.headers) {
         config.headers["Authorization"] = `Bearer ${access}`;
       }
-    } catch (_e) {}
+    } catch (e) {
+      console.error("Interceptor request error:", e)
+    }
     return config;
   },
   (error) => Promise.reject(error)
