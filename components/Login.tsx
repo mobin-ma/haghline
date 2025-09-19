@@ -133,7 +133,7 @@ export default function Login({ toggleMode }: LoginProps) {
                   name="userType"
                   checked={typeUser === "individual"}
                   onChange={() => dispatch(setUser("individual"))}
-                  className="appearance-none w-3 h-3 rounded-full border-0 bg-zinc-500 dark:bg-amber-400 checked:bg-zinc-900 dark:checked:bg-amber-600 checked:scale-150 transition-all duration-300"
+                  className="appearance-none w-5 h-5 rounded-full border-2 border-zinc-500 dark:border-amber-400 relative transition-all duration-300 checked:border-zinc-900 dark:checked:border-amber-600 before:content-['\2713'] before:absolute before:inset-0  before:flex before:items-center before:justify-center before:text-xs before:font-bold before:bg-zinc-900 dark:before:bg-amber-600 before:text-white before:rounded-full before:opacity-0 checked:before:opacity-100"
                 />
                 حقیقی
               </label>
@@ -144,7 +144,7 @@ export default function Login({ toggleMode }: LoginProps) {
                   name="userType"
                   checked={typeUser === "legal"}
                   onChange={() => dispatch(setUser("legal"))}
-                  className="appearance-none w-3 h-3 rounded-full border-0 bg-zinc-500 dark:bg-amber-400 checked:bg-zinc-900 dark:checked:bg-amber-600 checked:scale-150 transition-all duration-300"
+                  className="appearance-none w-5 h-5 rounded-full border-2 border-zinc-500 dark:border-amber-400 relative transition-all duration-300 checked:border-zinc-900 dark:checked:border-amber-600 before:content-['\2713'] before:absolute before:inset-0  before:flex before:items-center before:justify-center before:text-xs before:font-bold before:bg-zinc-900 dark:before:bg-amber-600 before:text-white before:rounded-full before:opacity-0 checked:before:opacity-100"
                 />
                 حقوقی
               </label>

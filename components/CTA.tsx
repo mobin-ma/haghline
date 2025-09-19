@@ -9,14 +9,14 @@ export default function CTA() {
   const dispatch = useDispatch();
   return (
     <motion.div
-      className="flex flex-col justify-center items-center gap-6 mb-24 pt-14 md:mb-50 md:pt-28"
+      className="w-full flex flex-col justify-center items-center gap-6 mb-24 pt-14 md:mb-50 md:pt-28"
       id="CTA"
-      initial={{ opacity: 0, x: -300 }}
+      initial={{ opacity: 0, x: -100 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.2 }}
     >
-      <h3 className="md:w-3/4 text-2xl md:text-4xl text-center font-bold px-6 md:px-0">
+      <h3 className="w-4/5 md:w-3/4 text-2xl md:text-4xl text-center font-bold px-6 md:px-0">
         با یک کلیک ساده، مسیر دسترسی به خدمات حقوقی سریع و مطمئن را آغاز کنید.
         همین حالا اقدام کنید و پرونده خود را به‌صورت آنلاین ثبت نمایید
       </h3>

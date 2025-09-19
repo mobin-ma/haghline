@@ -11,17 +11,17 @@ export default function Hero() {
   const dispatch = useDispatch();
   return (
     <motion.div
-      className="w-full h-screen flex flex-col justify-center items-center gap-5 pt-24"
+      className="w-full h-screen flex flex-col justify-center items-center gap-5 md:pt-24"
       id="hero"
-      initial={{ opacity: 0, x: 300 }}
+      initial={{ opacity: 0, x: 100 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.2 }}
     >
-      <h2 className="text-2xl md:text-5xl font-bold border-b-2 pb-3 mb-3 md:pb-10 md:mb-10">
+      <h2 className="w-4/5 text-2xl md:text-5xl text-center font-bold border-b-2 pb-3 mb-3 md:pb-10 md:mb-10">
         دسترسی سریع به وکیل مورد نیاز
       </h2>
-      <p className="text-sm md:text-lg text-center">
+      <p className="w-4/5 text-sm md:text-lg text-center">
         حق لاین به شما کمک می‌کند تا بدون دغدغه و در کمترین زمان، وکیل مناسب
         پیدا کنید و پرونده خود را مدیریت کنید
       </p>

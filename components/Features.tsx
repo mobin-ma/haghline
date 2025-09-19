@@ -38,25 +38,25 @@ export default function Features() {
     },
   ];
   return (
-    <div className="features-bg max-h-screen" id="features">
-      <div className="w-full h-full bg-zinc-700/80 flex flex-col justify-center items-center md:pt-24">
+    <div className="features-bg min-h-screen" id="features">
+      <div className="w-full h-full bg-zinc-700/80 flex flex-col justify-center items-center py-10 md:py-5 md:pt-24">
         <motion.div
           className="flex justify-center items-center flex-col md:mb-10 text-white"
-          initial={{ opacity: 0, x: -300 }}
+          initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className="text-2xl md:text-5xl font-bold border-b-2 pb-3 mb-3 md:pb-10 md:mb-2 md:mt-10">
+          <h2 className="w-4/5 text-center text-2xl md:text-5xl font-bold border-b-2 pb-3 mb-3 md:pb-10 md:mb-2 md:mt-10">
             ویژگی‌ها
           </h2>
-          <p className="mt-2 text-sm md:text-base text-center">
+          <p className="w-4/5 mt-2 text-sm md:text-base text-center">
             ویژگی‌هایی که پلتفرم حق‌لاین را از سایر راهکارها متمایز می‌سازد
           </p>
         </motion.div>
         <motion.div
           className="w-full flex flex-wrap"
-          initial={{ opacity: 0, x: 300 }}
+          initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}

@@ -21,15 +21,15 @@ export default function Testimonials() {
     >
       <motion.div
         className="md:w-1/2 text-center flex justify-center items-center flex-col mb-10"
-        initial={{ opacity: 0, x: -300 }}
+        initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.2 }}
       >
-        <h2 className="text-lg md:text-5xl font-bold border-b-2 pb-3 mb-3 md:pb-10 md:mb-2 mt-10">
+        <h2 className="w-4/5 text-center text-2xl md:text-5xl font-bold border-b-2 pb-3 mb-3 md:pb-10 md:mb-2 mt-10">
           گواهینامه ها
         </h2>
-        <p className="mt-2 text-wrap text-sm md:text-base text-center px-5 md:px-0">
+        <p className="w-4/5 mt-2 text-wrap text-sm md:text-base text-center px-5 md:px-0">
           نظرات و تجربه‌های واقعی کاربران نشان می‌دهد که حق‌لاین تا چه اندازه
           توانسته اعتماد و رضایت کاربران را جلب کند. در این بخش، بازخوردهای
           کسانی که از خدمات پلتفرم استفاده کرده‌اند را می‌خوانید تا با اطمینان
@@ -38,7 +38,7 @@ export default function Testimonials() {
       </motion.div>
       <motion.div
         className="w-full py-24 sm:py-32"
-        initial={{ opacity: 0, x: 300 }}
+        initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.2 }}

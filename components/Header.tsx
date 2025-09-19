@@ -58,17 +58,17 @@ export default function Header({ welcomeRef }: HeaderProps) {
       }
     `}
     >
-      <div className="w-full text-6xl font-bold cursor-pointer">LOGO</div>
+      <div className="w-full text-3x md:text-6xl font-bold cursor-pointer">LOGO</div>
       <nav className="w-full hidden md:block">
         <ul className="w-full flex justify-between items-center font-bold">
           {sections.map((sec, i) => (
             <li key={i}>
               <motion.button
                 onClick={() => scrollTo(sec.id, 1.2)}
-                className="relative px-2 py-1 transition-all cursor-pointer hover:text-2xl"
+                className="w-full relative px-2 py-1 transition-all cursor-pointer hover:text-2xl"
               >
                 <span
-                  className={`transition-colors ${
+                  className={`w-full transition-colors ${
                     active === sec.id ? "text-zinc-900 dark:text-amber-500" : "text-zinc-500 dark:text-zinc-100"
                   }`}
                 >

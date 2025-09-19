@@ -14,22 +14,22 @@ export default function LawyerShowcase() {
       <div className="w-full h-full bg-zinc-700/80 flex flex-col justify-center items-center md:p-18">
         <motion.div
           className="flex justify-center items-center flex-col mb-10 text-white"
-          initial={{ opacity: 0, x: -300 }}
+          initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className="text-2xl md:text-5xl font-bold border-b-2 pb-3 mb-3 md:pb-10 md:mb-2 mt-10">
+          <h2 className="w-4/5 text-center text-2xl md:text-5xl font-bold border-b-2 pb-3 mb-3 md:pb-10 md:mb-2 mt-10">
             ویترین وکلا
           </h2>
-          <p className="mt-2 text-sm md:text-base text-center px-5 md:px-0">
+          <p className="w-4/5 mt-2 text-sm md:text-base text-center px-5 md:px-0">
             با مشاهده رزومه و تخصص وکلای مختلف، بهترین انتخاب را برای پرونده خود
             داشته باشید
           </p>
         </motion.div>
         <motion.div
           className="w-full flex flex-col md:flex-row justify-between items-center gap-5 md:gap-10 p-5 md:p-20"
-          initial={{ opacity: 0, x: 300 }}
+          initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.2 }}
@@ -49,7 +49,7 @@ export default function LawyerShowcase() {
                 <h3 className="font-bold text-2xl md:text-4xl text-white mb-3 md:mb-5">
                   مبین مددی
                 </h3>
-                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-none">
+                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
                   دکتر مبین مددی، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -68,10 +68,10 @@ export default function LawyerShowcase() {
                 />
               </div>
               <div className="text-right">
-                <h3 className="font-bold text-3xl text-white mb-3 md:mb-5">
+                <h3 className="font-bold text-2xl text-white mb-3 md:mb-5">
                   مریم صادقی
                 </h3>
-                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-none">
+                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
                   دکتر مریم صادقی وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -90,10 +90,10 @@ export default function LawyerShowcase() {
                 />
               </div>
               <div className="text-right">
-                <h3 className="font-bold text-3xl text-white mb-3 md:mb-5">
+                <h3 className="font-bold text-2xl text-white mb-3 md:mb-5">
                   امیر شکری
                 </h3>
-                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-none">
+                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
                   دکتر امیر شکری، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -115,10 +115,10 @@ export default function LawyerShowcase() {
                 />
               </div>
               <div className="text-right">
-                <h3 className="font-bold text-3xl text-white mb-3 md:mb-5">
+                <h3 className="font-bold text-2xl text-white mb-3 md:mb-5">
                   نگین ثابتی
                 </h3>
-                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-none">
+                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
                   دکتر نگین ثابتی، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -137,10 +137,10 @@ export default function LawyerShowcase() {
                 />
               </div>
               <div className="text-right">
-                <h3 className="font-bold text-3xl text-white mb-3 md:mb-5">
+                <h3 className="font-bold text-2xl text-white mb-3 md:mb-5">
                   محمد اکبری
                 </h3>
-                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-none">
+                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
                   دکتر محمد اکبری، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -159,10 +159,10 @@ export default function LawyerShowcase() {
                 />
               </div>
               <div className="text-right">
-                <h3 className="font-bold text-3xl text-white mb-3 md:mb-5">
+                <h3 className="font-bold text-2xl text-white mb-3 md:mb-5">
                   مهسا محمدی
                 </h3>
-                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-none">
+                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
                   دکتر مهسا محمدی، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
