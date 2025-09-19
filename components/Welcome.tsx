@@ -21,8 +21,8 @@ const Welcome = forwardRef<HTMLDivElement>((props, ref) => {
         animate={{ scale: 1 }}
         transition={transition}
       >
-        <h1 className="text-2xl md:text-5xl font-bold">به حق لاین خوش آمدید</h1>
-        <h2 className="text-sm md:text-2xl">
+        <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold">به حق لاین خوش آمدید</h1>
+        <h2 className="text-sm md:text-lg lg:text-2xl">
           حق لاین به شما کمک می‌کند تا دسترسی سریع، ساده و مطمئن به وکلای متخصص
           داشته باشید. پرونده خود را آنلاین ثبت کنید، وکیل مناسب را پیدا کنید و
           در کمترین زمان و با شفافیت کامل امور حقوقی خود را مدیریت کنید
