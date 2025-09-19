@@ -1,7 +1,6 @@
 "use client";
 import { useRef } from "react";
 import dynamic from "next/dynamic";
-import Welcome from "@/components/Welcome";
 import Header from "@/components/Header";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
@@ -11,6 +10,11 @@ import Loading from "./loading";
 import PublicRoute from "@/components/PublicRoute";
 
 const Hero = dynamic(() => import("@/components/Hero"), {
+  ssr: false,
+  loading: () => <Loading />,
+});
+
+const Welcome = dynamic(() => import("@/components/Welcome"), {
   ssr: false,
   loading: () => <Loading />,
 });

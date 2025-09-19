@@ -61,8 +61,8 @@ export default function Header({ welcomeRef }: HeaderProps) {
       <div className="w-full text-6xl font-bold cursor-pointer">LOGO</div>
       <nav className="w-full hidden md:block">
         <ul className="w-full flex justify-between items-center font-bold">
-          {sections.map((sec) => (
-            <li key={sec.id}>
+          {sections.map((sec, i) => (
+            <li key={i}>
               <motion.button
                 onClick={() => scrollTo(sec.id, 1.2)}
                 className="relative px-2 py-1 transition-all cursor-pointer hover:text-2xl"
@@ -112,8 +112,8 @@ export default function Header({ welcomeRef }: HeaderProps) {
                 <span className="self-end" onClick={() => setMenuToggle(false)}>
                   <IoMdClose />
                 </span>
-                {sections.map((sec) => (
-                  <li key={sec.id}>
+                {sections.map((sec,i) => (
+                  <li key={i}>
                     <button
                       onClick={() => {
                         scrollTo(sec.id, 1.2);

@@ -28,7 +28,7 @@ let failedQueue: {
   originalRequest: AxiosRequestConfig;
 }[] = [];
 
-function processQueue(error: any, token: string | null = null) {
+function processQueue(error: unknown, token: string | null = null) {
   failedQueue.forEach((p) => {
     if (error) p.reject(error);
     else p.resolve(token);

@@ -6,13 +6,14 @@ import { useEffect, useState } from "react";
 import { registerUser, verifyOtpUser } from "@/store/authThunks";
 import { useAppDispatch } from "@/hooks/useAppDispatch ";
 import { setLocalError } from "@/store/authSlice";
+import { Transition } from "motion";
 
 type SignupProps = {
   toggleMode: () => void;
 };
 
 export default function Signup({ toggleMode }: SignupProps) {
-  const transition: {} = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
+  const transition: Transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
 
   const dispatch = useAppDispatch();
   const typeUser = useSelector((state: RootState) => state.type.typeUser);

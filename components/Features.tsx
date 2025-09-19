@@ -3,10 +3,11 @@ import { BsTransparency } from "react-icons/bs";
 import { FaFile } from "react-icons/fa6";
 import { MdSavings } from "react-icons/md";
 import * as motion from "motion/react-client";
+import { ReactNode } from "react";
 type Card = {
   title: string;
   description: string;
-  icon: any;
+  icon: ReactNode;
 };
 
 export default function Features() {

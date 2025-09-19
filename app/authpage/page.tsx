@@ -5,14 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store/store";
 import { toggleMode } from "@/store/authSlice";
 import * as motion from "motion/react-client";
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, Transition } from "motion/react";
 import PublicRoute from "@/components/PublicRoute";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export default function AuthPage() {
   const mode = useSelector((state: RootState) => state.auth.mode);
   const dispatch = useDispatch();
-  const transition: {} = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
+  const transition: Transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
   return (
     <PublicRoute>
       <div className="w-full h-screen flex">

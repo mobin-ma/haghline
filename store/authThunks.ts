@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "@/lib/axios";
+import { AxiosError } from "axios";
 
 interface RegisterPayload {
   user_type: "individual" | "legal";
@@ -19,13 +20,13 @@ export const registerUser = createAsyncThunk<
   { rejectValue: string }
 >("auth/registerUser", async (data, { rejectWithValue }) => {
   try {
-    const res = await api.post(
-      "users/register/",
-      data
-    );
+    const res = await api.post("users/register/", data);
     return res.data;
-  } catch (err: any) {
-    return rejectWithValue(err.response?.data?.message || "خطای سرور");
+  } catch (err: unknown) {
+    if (err instanceof AxiosError) {
+      return rejectWithValue(err.response?.data?.message || "خطای سرور");
+    }
+    return rejectWithValue("خطای نامشخص");
   }
 });
 
@@ -44,13 +45,13 @@ export const loginUser = createAsyncThunk<
   { rejectValue: string }
 >("auth/loginUser", async (data, { rejectWithValue }) => {
   try {
-    const res = await api.post(
-      "users/login/",
-      data
-    );
+    const res = await api.post("users/login/", data);
     return res.data;
-  } catch (err: any) {
-    return rejectWithValue(err.response?.data?.message || "خطا در ورود");
+  } catch (err: unknown) {
+    if (err instanceof AxiosError) {
+      return rejectWithValue(err.response?.data?.message || "خطای سرور");
+    }
+    return rejectWithValue("خطای نامشخص");
   }
 });
 
@@ -70,13 +71,13 @@ export const verifyOtpUser = createAsyncThunk<
   { rejectValue: string }
 >("auth/verifyOtpUser", async (data, { rejectWithValue }) => {
   try {
-    const res = await api.post(
-      "users/verify-otp/",
-      data
-    );
+    const res = await api.post("users/verify-otp/", data);
     return res.data;
-  } catch (err: any) {
-    return rejectWithValue(err.response?.data?.message || "خطا در ورود");
+  } catch (err: unknown) {
+    if (err instanceof AxiosError) {
+      return rejectWithValue(err.response?.data?.message || "خطای سرور");
+    }
+    return rejectWithValue("خطای نامشخص");
   }
 });
 
@@ -91,12 +92,12 @@ export const refreshToken = createAsyncThunk<
   { rejectValue: string }
 >("auth/refreshToken", async (data, { rejectWithValue }) => {
   try {
-    const res = await api.post(
-      "users/token/refresh/",
-      data
-    );
+    const res = await api.post("users/token/refresh/", data);
     return res.data;
-  } catch (err: any) {
-    return rejectWithValue(err.response?.data?.message || "خطا در تمدید توکن");
+  } catch (err: unknown) {
+    if (err instanceof AxiosError) {
+      return rejectWithValue(err.response?.data?.message || "خطای سرور");
+    }
+    return rejectWithValue("خطای نامشخص");
   }
 });

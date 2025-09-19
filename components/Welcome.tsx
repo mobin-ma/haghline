@@ -1,9 +1,10 @@
 "use client";
+import { Transition } from "motion";
 import * as motion from "motion/react-client";
 import { forwardRef } from "react";
 
 const Welcome = forwardRef<HTMLDivElement>((props, ref) => {
-  const transition: {} = {
+  const transition: Transition = {
     duration: 1,
     delay: 0.8,
     ease: [0, 0.71, 0.2, 1.01],
