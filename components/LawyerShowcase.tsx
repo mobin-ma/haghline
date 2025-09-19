@@ -46,10 +46,10 @@ export default function LawyerShowcase() {
                 />
               </div>
               <div className="text-right">
-                <h3 className="font-bold text-2xl md:text-4xl text-white mb-3 md:mb-5">
+                <h3 className="font-bold text-lg md:text-2xl lg:text-4xl text-white mb-3 md:mb-5">
                   مبین مددی
                 </h3>
-                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
+                <p className="text-base lg:text-lg text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
                   دکتر مبین مددی، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -68,10 +68,10 @@ export default function LawyerShowcase() {
                 />
               </div>
               <div className="text-right">
-                <h3 className="font-bold text-2xl text-white mb-3 md:mb-5">
+                <h3 className="font-bold text-lg md:text-2xl lg:text-4xl text-white mb-3 md:mb-5">
                   مریم صادقی
                 </h3>
-                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
+                <p className="text-base lg:text-lg text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
                   دکتر مریم صادقی وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -90,10 +90,10 @@ export default function LawyerShowcase() {
                 />
               </div>
               <div className="text-right">
-                <h3 className="font-bold text-2xl text-white mb-3 md:mb-5">
+                <h3 className="font-bold text-lg md:text-2xl lg:text-4xl text-white mb-3 md:mb-5">
                   امیر شکری
                 </h3>
-                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
+                <p className="text-base lg:text-lg text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
                   دکتر امیر شکری، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -115,10 +115,10 @@ export default function LawyerShowcase() {
                 />
               </div>
               <div className="text-right">
-                <h3 className="font-bold text-2xl text-white mb-3 md:mb-5">
+                <h3 className="font-bold text-lg md:text-2xl lg:text-4xl text-white mb-3 md:mb-5">
                   نگین ثابتی
                 </h3>
-                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
+                <p className="text-base lg:text-lg text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
                   دکتر نگین ثابتی، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -137,10 +137,10 @@ export default function LawyerShowcase() {
                 />
               </div>
               <div className="text-right">
-                <h3 className="font-bold text-2xl text-white mb-3 md:mb-5">
+                <h3 className="font-bold text-lg md:text-2xl lg:text-4xl text-white mb-3 md:mb-5">
                   محمد اکبری
                 </h3>
-                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
+                <p className="text-base lg:text-lg text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
                   دکتر محمد اکبری، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و
@@ -159,10 +159,10 @@ export default function LawyerShowcase() {
                 />
               </div>
               <div className="text-right">
-                <h3 className="font-bold text-2xl text-white mb-3 md:mb-5">
+                <h3 className="font-bold text-lg md:text-2xl lg:text-4xl text-white mb-3 md:mb-5">
                   مهسا محمدی
                 </h3>
-                <p className="text-base text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
+                <p className="text-base lg:text-lg text-gray-100 dark:text-amber-400 line-clamp-3 md:line-clamp-4 lg:line-clamp-none">
                   دکتر مهسا محمدی، وکیل پایه یک دادگستری با بیش از ۱۰ سال تجربه
                   در حوزه دعاوی حقوقی و تجاری. تخصص ایشان در قراردادهای
                   بین‌المللی و حل‌وفصل اختلافات پیچیده باعث اعتماد شرکت‌ها و

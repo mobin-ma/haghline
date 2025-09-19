@@ -15,7 +15,7 @@ export default function AuthPage() {
   const transition: Transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
   return (
     <PublicRoute>
-      <div className="w-full h-screen flex">
+      <div className="w-full min-h-screen flex">
         <nav className="fixed top-5 left-5 z-50">
           <ThemeToggle />
         </nav>
