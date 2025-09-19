@@ -16,7 +16,7 @@ const Welcome = forwardRef<HTMLDivElement>((props, ref) => {
       className="w-full h-screen welcome-bg flex justify-center items-center"
     >
       <motion.div
-        className="w-3/5 md:w-1/2 flex flex-col justify-center items-center gap-10 bg-black/50 dark:bg-white/50 backdrop-blur-2xl md:backdrop-blur p-5 text-center rounded-3xl text-white"
+        className="w-3/5 md:w-1/2 flex flex-col justify-center items-center gap-10 bg-white/50 dark:bg-black/50 backdrop-blur-2xl md:backdrop-blur p-5 text-center rounded-3xl text-white"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={transition}
