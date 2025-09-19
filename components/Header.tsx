@@ -127,6 +127,7 @@ export default function Header({ welcomeRef }: HeaderProps) {
                     </button>
                   </li>
                 ))}
+                <ThemeToggle />
               </ul>
             </motion.nav>
           </>
