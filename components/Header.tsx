@@ -50,7 +50,7 @@ export default function Header({ welcomeRef }: HeaderProps) {
   return (
     <div
       className={`
-       w-full flex justify-between items-center px-8 py-4 transition-all duration-300
+       w-full flex justify-between items-center px-8 py-4 transition-all duration-300 gap-20
       ${
         isSticky
           ? "fixed top-0 left-0 bg-white dark:bg-zinc-800 shadow-lg shadow-zinc-900/20 z-50"
@@ -58,8 +58,8 @@ export default function Header({ welcomeRef }: HeaderProps) {
       }
     `}
     >
-      <div className="w-full text-3x md:text-6xl font-bold cursor-pointer">LOGO</div>
-      <nav className="w-full hidden md:block">
+      <div className="w-1/5 text-3xl md:text-6xl font-bold cursor-pointer">LOGO</div>
+      <nav className="w-4/5 hidden md:block">
         <ul className="w-full flex justify-between items-center font-bold">
           {sections.map((sec, i) => (
             <li key={i}>

@@ -11,7 +11,7 @@ export default function Hero() {
   const dispatch = useDispatch();
   return (
     <motion.div
-      className="w-full h-screen flex flex-col justify-center items-center gap-5 md:pt-24"
+      className="w-full min-h-screen flex flex-col justify-center items-center gap-5 mb-5 md:pt-24"
       id="hero"
       initial={{ opacity: 0, x: 100 }}
       whileInView={{ opacity: 1, x: 0 }}
