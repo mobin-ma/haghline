@@ -21,18 +21,36 @@ export default function Login({ toggleMode }: LoginProps) {
   const dispatch = useAppDispatch();
   const typeUser = useSelector((state: RootState) => state.type.typeUser);
   const { loading, token } = useSelector((state: RootState) => state.auth);
-  console.log(token);
 
   const [phone, setPhone] = useState<string>("");
   const [otp, setOtp] = useState<string>("");
   const [step, setStep] = useState<"login" | "verify">("login");
+  const [timer, setTimer] = useState(60);
+  const [resendAllowed, setResendAllowed] = useState(false);
 
   useEffect(() => {
     const savedTypeUser = localStorage.getItem("typeUser") as
       | "individual"
       | "legal";
     if (savedTypeUser) dispatch(setUser(savedTypeUser));
-  }, [dispatch]);
+
+    if (step === "verify") {
+      setTimer(60);
+      setResendAllowed(false);
+      const interval = setInterval(() => {
+        setTimer((prev) => {
+          if (prev <= 1) {
+            clearInterval(interval);
+            setResendAllowed(true);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }
+  }, [dispatch, step]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -70,6 +88,19 @@ export default function Login({ toggleMode }: LoginProps) {
     } else if (verifyOtpUser.rejected.match(result)) {
       setLocalError(result.payload || "کد تایید اشتباه است");
     }
+  };
+
+  const handleResend = async () => {
+    if (!resendAllowed) return;
+
+    const payload =
+      typeUser === "individual"
+        ? { user_type: typeUser, phone_number: phone }
+        : { user_type: typeUser, phone_number: phone };
+
+    await dispatch(loginUser(payload));
+    setTimer(60);
+    setResendAllowed(false);
   };
 
   return (
@@ -139,7 +170,7 @@ export default function Login({ toggleMode }: LoginProps) {
               disabled={true}
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
+              className="w-full disabled:text-gray-400 cursor-not-allowed px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
             />
             <input
               type="number"
@@ -154,6 +185,19 @@ export default function Login({ toggleMode }: LoginProps) {
             >
               تایید کد
             </button>
+            <div className="w-full flex flex-col items-center gap-2">
+              <button
+                type="button"
+                onClick={handleResend}
+                disabled={!resendAllowed}
+                className="w-full bg-zinc-700 text-white py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:hover:bg-amber-600"
+              >
+                ارسال مجدد کد
+              </button>
+              {!resendAllowed && (
+                <p>می‌توانید دوباره در {timer} ثانیه ارسال کنید</p>
+              )}
+            </div>
           </motion.form>
         )}
       </div>

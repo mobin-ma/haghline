@@ -3,7 +3,7 @@ import { RootState } from "@/store/store";
 import * as motion from "motion/react-client";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { registerUser, verifyOtpUser } from "@/store/authThunks";
+import { loginUser, registerUser, verifyOtpUser } from "@/store/authThunks";
 import { useAppDispatch } from "@/hooks/useAppDispatch ";
 import { setLocalError } from "@/store/authSlice";
 import { Transition } from "motion";
@@ -28,13 +28,32 @@ export default function Signup({ toggleMode }: SignupProps) {
   const [companyName, setCompanyName] = useState<string>("");
   const [otp, setOtp] = useState<string>("");
   const [step, setStep] = useState<"register" | "verify">("register");
+  const [timer, setTimer] = useState(20);
+  const [resendAllowed, setResendAllowed] = useState(false);
 
   useEffect(() => {
     const savedTypeUser = localStorage.getItem("typeUser") as
       | "individual"
       | "legal";
     if (savedTypeUser) dispatch(setUser(savedTypeUser));
-  }, [dispatch]);
+
+    if (step === "verify") {
+      setTimer(20);
+      setResendAllowed(false);
+      const interval = setInterval(() => {
+        setTimer((prev) => {
+          if (prev <= 1) {
+            clearInterval(interval);
+            setResendAllowed(true);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }
+  }, [dispatch, step]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -76,6 +95,19 @@ export default function Signup({ toggleMode }: SignupProps) {
     } else if (verifyOtpUser.rejected.match(result)) {
       setLocalError(result.payload || "کد تایید اشتباه است");
     }
+  };
+
+  const handleResend = async () => {
+    if (!resendAllowed) return;
+
+    const payload =
+      typeUser === "individual"
+        ? { user_type: typeUser, phone_number: phone }
+        : { user_type: typeUser, phone_number: phone };
+
+    await dispatch(loginUser(payload)); 
+    setTimer(20);
+    setResendAllowed(false);
   };
 
   return (
@@ -158,7 +190,10 @@ export default function Signup({ toggleMode }: SignupProps) {
             </button>
           </form>
         ) : (
-          <form
+          <motion.form
+            initial={{ opacity: 0, translateY: -100 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={transition}
             className="flex flex-col justify-center items-center gap-5"
             onSubmit={handleVerify}
           >
@@ -168,7 +203,7 @@ export default function Signup({ toggleMode }: SignupProps) {
               disabled={true}
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
+              className="w-full disabled:text-gray-400 cursor-not-allowed px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
             />
             <input
               type="number"
@@ -183,7 +218,20 @@ export default function Signup({ toggleMode }: SignupProps) {
             >
               تایید کد
             </button>
-          </form>
+            <div className="w-full flex flex-col items-center gap-2">
+              <button
+                type="button"
+                onClick={handleResend}
+                disabled={!resendAllowed}
+                className="w-full bg-zinc-700 text-white py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:hover:bg-amber-600"
+              >
+                ارسال مجدد کد
+              </button>
+              {!resendAllowed && (
+                <p>می‌توانید دوباره در {timer} ثانیه ارسال کنید</p>
+              )}
+            </div>
+          </motion.form>
         )}
       </div>
       <div className="w-full text-center">
