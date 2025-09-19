@@ -6,7 +6,7 @@ export default function Loading() {
   return (
     <div className="w-full h-screen flex flex-col gap-6 items-center justify-center bg-white dark:bg-zinc-900">
       <motion.div
-        className="w-16 h-16 border-4 border-zinc-600 dark:border-amber-600 border-t-transparent rounded-full"
+        className="w-16 h-16 border-4 border-zinc-600 dark:border-amber-600 dark:border-t-transparent border-t-transparent rounded-full"
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
       />
