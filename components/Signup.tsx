@@ -28,7 +28,7 @@ export default function Signup({ toggleMode }: SignupProps) {
   const [companyName, setCompanyName] = useState<string>("");
   const [otp, setOtp] = useState<string>("");
   const [step, setStep] = useState<"register" | "verify">("register");
-  const [timer, setTimer] = useState(20);
+  const [timer, setTimer] = useState(60);
   const [resendAllowed, setResendAllowed] = useState(false);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function Signup({ toggleMode }: SignupProps) {
     if (savedTypeUser) dispatch(setUser(savedTypeUser));
 
     if (step === "verify") {
-      setTimer(20);
+      setTimer(60);
       setResendAllowed(false);
       const interval = setInterval(() => {
         setTimer((prev) => {
@@ -106,7 +106,7 @@ export default function Signup({ toggleMode }: SignupProps) {
         : { user_type: typeUser, phone_number: phone };
 
     await dispatch(loginUser(payload)); 
-    setTimer(20);
+    setTimer(60);
     setResendAllowed(false);
   };
 
