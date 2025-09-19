@@ -20,7 +20,7 @@ export default function Login({ toggleMode }: LoginProps) {
 
   const dispatch = useAppDispatch();
   const typeUser = useSelector((state: RootState) => state.type.typeUser);
-  const { loading, token } = useSelector((state: RootState) => state.auth);
+  const { loading } = useSelector((state: RootState) => state.auth);
 
   const [phone, setPhone] = useState<string>("");
   const [otp, setOtp] = useState<string>("");
