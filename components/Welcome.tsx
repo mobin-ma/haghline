@@ -12,6 +12,7 @@ const Welcome = forwardRef<HTMLDivElement>((props, ref) => {
 
   return (
     <div
+      id="#welcome"
       ref={ref}
       className="w-full h-screen welcome-bg flex justify-center items-center"
     >

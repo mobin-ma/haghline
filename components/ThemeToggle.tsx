@@ -38,9 +38,9 @@ export default function ThemeToggle() {
           exit={{ opacity: 0}}
           transition={{ duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }}
           onClick={toggleTheme}
-          className="p-2 cursor-pointer rounded-md border dark:border-gray-600 border-gray-300 dark:bg-gray-800 bg-gray-100 dark:text-white text-black"
+          className="p-2 cursor-pointer rounded-lg bg-gray-200 shadow-lg shadow-zinc-900/30"
         >
-          🌞 Light
+          🌞
         </motion.button>
       )}
 
@@ -51,9 +51,9 @@ export default function ThemeToggle() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }}
           onClick={toggleTheme}
-          className="p-2 cursor-pointer rounded-md border dark:border-gray-600 border-gray-300 dark:bg-gray-800 bg-gray-100 dark:text-white text-black"
+          className="p-2 cursor-pointer rounded-lg bg-zinc-900 shadow-lg shadow-zinc-950/30"
         >
-          🌙 Dark
+          🌙
         </motion.button>
       )}
     </>

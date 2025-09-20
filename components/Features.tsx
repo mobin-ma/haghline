@@ -38,7 +38,7 @@ export default function Features() {
     },
   ];
   return (
-    <div className="features-bg min-h-screen" id="features">
+    <div className="features-bg min-h-screen md:h-screen" id="features">
       <div className="w-full h-full bg-zinc-700/80 flex flex-col justify-center items-center py-10 md:py-5 md:pt-24">
         <motion.div
           className="flex justify-center items-center flex-col md:mb-10 text-white"

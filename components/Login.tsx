@@ -112,7 +112,9 @@ export default function Login({ toggleMode }: LoginProps) {
       id="login"
     >
       <div className="w-full text-center">
-        <h3 className="text-4xl font-bold">ورود کاربر</h3>
+        <h3 className="text-4xl font-bold">
+          {step === "login" ? "ورود کاربر" : "کد را وارد کنید"}
+        </h3>
       </div>
       <div className="w-full">
         {step === "login" ? (
@@ -126,29 +128,6 @@ export default function Login({ toggleMode }: LoginProps) {
               onChange={(e) => setPhone(e.target.value)}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
             />
-            <div className="flex gap-4 w-full justify-center">
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="userType"
-                  checked={typeUser === "individual"}
-                  onChange={() => dispatch(setUser("individual"))}
-                  className="appearance-none w-5 h-5 rounded-full border-2 border-zinc-500 dark:border-amber-400 relative transition-all duration-300 checked:border-zinc-900 dark:checked:border-amber-600 before:content-['\2713'] before:absolute before:inset-0  before:flex before:items-center before:justify-center before:text-xs before:font-bold before:bg-zinc-900 dark:before:bg-amber-600 before:text-white before:rounded-full before:opacity-0 checked:before:opacity-100"
-                />
-                حقیقی
-              </label>
-
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  name="userType"
-                  checked={typeUser === "legal"}
-                  onChange={() => dispatch(setUser("legal"))}
-                  className="appearance-none w-5 h-5 rounded-full border-2 border-zinc-500 dark:border-amber-400 relative transition-all duration-300 checked:border-zinc-900 dark:checked:border-amber-600 before:content-['\2713'] before:absolute before:inset-0  before:flex before:items-center before:justify-center before:text-xs before:font-bold before:bg-zinc-900 dark:before:bg-amber-600 before:text-white before:rounded-full before:opacity-0 checked:before:opacity-100"
-                />
-                حقوقی
-              </label>
-            </div>
             <button
               type="submit"
               className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:border-2 dark:border-amber-500 dark:hover:border-amber-500 dark:hover:bg-transparent"
