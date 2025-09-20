@@ -13,13 +13,11 @@ export default function Logout() {
     router.push("/authpage");
   };
   return (
-    <div>
       <button
         onClick={handleLogout}
-        className="bg-rose-600 w-14 h-8 rounded-lg flex justify-center items-center border-2 border-rose-600 text-white hover:bg-transparent hover:text-rose-600 transition-colors cursor-pointer p-3 font-bold text-center text-base shadow-lg shadow-zinc-950/30"
+        className="bg-rose-600 w-full md:w-14 h-8 rounded-lg flex justify-center items-center border-2 border-rose-600 text-white hover:bg-transparent hover:text-rose-600 transition-colors cursor-pointer p-3 font-bold text-center text-base shadow-lg shadow-zinc-950/30"
       >
         خروج
       </button>
-    </div>
   );
 }

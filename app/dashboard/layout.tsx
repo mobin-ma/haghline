@@ -16,23 +16,26 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <ProtectedRoute>
       <div className="flex min-h-screen">
-        <div className="md:hidden fixed top-5 right-5">
-          <MenuToggle />
-        </div>
         <aside className="hidden md:flex flex-col justify-between items-start gap-10 overflow-hidden group w-20 hover:w-64 hover:p-10 transition-all p-5 bg-zinc-800 dark:bg-amber-500 text-white dark:text-zinc-900">
           <ThemeToggle />
           <ul className="w-full h-full flex flex-col justify-center items-start gap-5 ">
             <li className="flex justify-start items-center gap-3 hover:text-zinc-400 dark:hover:text-amber-700 hover:text-3xl transition-all cursor-pointer">
               <CiHome className="text-base md:text-4xl" />
-              <p className="opacity-0 group-hover:opacity-100 transition-all duration-300">خانه</p>
+              <p className="opacity-0 group-hover:opacity-100 transition-all duration-300">
+                خانه
+              </p>
             </li>
             <li className="flex justify-start items-center gap-3 hover:text-zinc-400 dark:hover:text-amber-700 hover:text-3xl transition-all cursor-pointer">
               <CiSettings className="text-base md:text-4xl" />
-              <p className="opacity-0 group-hover:opacity-100 transition-all duration-300">تنظیمات</p>
+              <p className="opacity-0 group-hover:opacity-100 transition-all duration-300">
+                تنظیمات
+              </p>
             </li>
             <li className="flex justify-start items-center gap-3 hover:text-zinc-400 dark:hover:text-amber-700 hover:text-3xl transition-all cursor-pointer">
               <CiFileOn className="text-base md:text-4xl" />
-              <p className="opacity-0 group-hover:opacity-100 transition-all duration-300">گزارشات</p>
+              <p className="opacity-0 group-hover:opacity-100 transition-all duration-300">
+                گزارشات
+              </p>
             </li>
           </ul>
           <Logout />
@@ -41,8 +44,11 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         <main className="w-full relative overflow-auto flex-1 bg-gray-100 dark:bg-zinc-900">
           <header className="w-full sticky top-0 left-0 bg-gray-500/10 dark:bg-zinc-900/10 backdrop-blur flex justify-between items-center p-5 shadow-lg shadow-gray-500/10 dark:shadow-zinc-900/10">
             <div className="w-full flex items-center bg-gray-300 dark:bg-zinc-800 p-7 rounded-2xl shadow-lg shadow-gray-500/50 dark:shadow-zinc-950/50">
+              <div className="w-full md:hidden z-50">
+                <MenuToggle />
+              </div>
               <div className="w-full flex items-center">
-                <h2 className="text-3xl font-bold">داشبورد کاربر</h2>
+                <h2 className="text-lg lg:text-3xl font-bold">داشبورد کاربر</h2>
               </div>
               <div className="relative w-full flex items-center justify-end">
                 <Profile />
@@ -50,7 +56,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          {children}
+          <div className="w-full p-5">{children}</div>
         </main>
       </div>
     </ProtectedRoute>
