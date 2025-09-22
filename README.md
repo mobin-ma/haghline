@@ -1,31 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# حق لاین - پلتفرم حقوقی آنلاین
 
-## Getting Started
+پلتفرم آنلاین برای ارتباط مستقیم کاربران با وکلا و مشاوران حقوقی
 
-First, run the development server:
+## ویژگی‌ها
 
+- 🔐 سیستم احراز هویت با OTP
+- 👥 پشتیبانی از کاربران حقیقی و حقوقی
+- 🎨 رابط کاربری مدرن و ریسپانسیو
+- 🌙 پشتیبانی از حالت تاریک
+- 📱 بهینه‌سازی شده برای موبایل
+- ⚡ استفاده از Next.js 15 و React 19
+
+## تکنولوژی‌های استفاده شده
+
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **State Management**: Redux Toolkit
+- **Styling**: Tailwind CSS
+- **HTTP Client**: Axios
+- **Icons**: React Icons
+- **Animations**: Motion
+
+## نصب و راه‌اندازی
+
+1. کلون کردن پروژه:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd haghline
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. نصب dependencies:
+```bash
+pnpm install
+# یا
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. تنظیم متغیرهای محیطی:
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. اجرای پروژه:
+```bash
+pnpm dev
+# یا
+npm run dev
+```
 
-## Learn More
+5. باز کردن مرورگر:
+```
+http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+## ساختار پروژه
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+├── app/                 # Next.js App Router
+├── components/          # کامپوننت‌های React
+├── hooks/              # Custom Hooks
+├── lib/                # کتابخانه‌ها و utilities
+├── store/              # Redux store و slices
+├── public/             # فایل‌های استاتیک
+└── types/              # TypeScript types
+```
+
+## اسکریپت‌های موجود
+
+- `pnpm dev` - اجرای development server
+- `pnpm build` - ساخت production build
+- `pnpm start` - اجرای production server
+- `pnpm lint` - بررسی کد با ESLint
+
+## مشارکت
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 

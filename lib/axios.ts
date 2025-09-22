@@ -5,7 +5,7 @@ import { logout, setToken } from "@/store/authSlice";
 import type { TokenPayload } from "@/store/authThunks";
 
 const api = axios.create({
-  baseURL: "http://135.125.238.202:9800/api/",
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || "http://135.125.238.202:9800/api/",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
@@ -13,7 +13,7 @@ const api = axios.create({
 });
 
 const refreshClient = axios.create({
-  baseURL: "http://135.125.238.202:9800/api/",
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || "http://135.125.238.202:9800/api/",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",

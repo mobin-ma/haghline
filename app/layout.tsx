@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="rtl">
+    <html lang="fa" dir="rtl">
       <Providers>
         <body className="bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white transition-colors duration-1000">
           <Alert />

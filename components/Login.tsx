@@ -1,4 +1,4 @@
-import { useAppDispatch } from "@/hooks/useAppDispatch ";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { loginUser, verifyOtpUser } from "@/store/authThunks";
 import { RootState } from "@/store/store";
 import { setUser } from "@/store/typeUserSlice";

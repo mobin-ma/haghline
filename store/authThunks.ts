@@ -5,7 +5,7 @@ import { AxiosError } from "axios";
 interface RegisterPayload {
   user_type: "individual" | "legal";
   phone_number: string;
-  firs_name?: string;
+  first_name?: string;
   last_name?: string;
   company_name?: string;
 }
