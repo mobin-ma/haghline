@@ -108,7 +108,7 @@ api.interceptors.response.use(
         try {
           getStore().dispatch(setToken(newTokens));
         } catch (e) {
-          return e;
+          return Promise.reject(e);
         }
 
         processQueue(null, newTokens.access);
