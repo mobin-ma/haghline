@@ -5,6 +5,9 @@ import {
   verifyOtpUser,
   TokenPayload,
   refreshToken,
+  getUserInfo,
+  updateUserInfo,
+  UserInfo,
 } from "./authThunks";
 
 export type AuthMode = "login" | "signup";
@@ -15,6 +18,9 @@ interface AuthState {
   success: boolean;
   error: string | null;
   token?: TokenPayload;
+  userInfo?: UserInfo;
+  userInfoLoading: boolean;
+  userInfoError: string | null;
 }
 
 const tokenString =
@@ -29,6 +35,9 @@ const initialState: AuthState = {
     tokenString && tokenString !== "undefined"
       ? JSON.parse(tokenString)
       : undefined,
+  userInfo: undefined,
+  userInfoLoading: false,
+  userInfoError: null,
 };
 
 const authSlice = createSlice({
@@ -125,6 +134,35 @@ const authSlice = createSlice({
         if (typeof window !== "undefined") {
           localStorage.removeItem("token");
         }
+      });
+
+    // User Info reducers
+    builder
+      .addCase(getUserInfo.pending, (state) => {
+        state.userInfoLoading = true;
+        state.userInfoError = null;
+      })
+      .addCase(getUserInfo.fulfilled, (state, action) => {
+        state.userInfoLoading = false;
+        state.userInfo = action.payload;
+      })
+      .addCase(getUserInfo.rejected, (state, action) => {
+        state.userInfoLoading = false;
+        state.userInfoError = action.payload || "خطا در دریافت اطلاعات کاربر";
+      });
+
+    builder
+      .addCase(updateUserInfo.pending, (state) => {
+        state.userInfoLoading = true;
+        state.userInfoError = null;
+      })
+      .addCase(updateUserInfo.fulfilled, (state, action) => {
+        state.userInfoLoading = false;
+        state.userInfo = action.payload;
+      })
+      .addCase(updateUserInfo.rejected, (state, action) => {
+        state.userInfoLoading = false;
+        state.userInfoError = action.payload || "خطا در به‌روزرسانی اطلاعات کاربر";
       });
   },
 });

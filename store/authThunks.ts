@@ -101,3 +101,46 @@ export const refreshToken = createAsyncThunk<
     return rejectWithValue("خطای نامشخص");
   }
 });
+
+// User Info Interfaces
+export interface UserInfo {
+  phone_number: string;
+  user_type: "individual" | "legal";
+  first_name: string;
+  last_name: string;
+  company_name: string;
+}
+
+// Get User Info
+export const getUserInfo = createAsyncThunk<
+  UserInfo,
+  void,
+  { rejectValue: string }
+>("auth/getUserInfo", async (_, { rejectWithValue }) => {
+  try {
+    const res = await api.get("users/info/");
+    return res.data;
+  } catch (err: unknown) {
+    if (err instanceof AxiosError) {
+      return rejectWithValue(err.response?.data?.message || "خطای سرور");
+    }
+    return rejectWithValue("خطای نامشخص");
+  }
+});
+
+// Update User Info
+export const updateUserInfo = createAsyncThunk<
+  UserInfo,
+  Partial<UserInfo>,
+  { rejectValue: string }
+>("auth/updateUserInfo", async (data, { rejectWithValue }) => {
+  try {
+    const res = await api.patch("users/info/", data);
+    return res.data;
+  } catch (err: unknown) {
+    if (err instanceof AxiosError) {
+      return rejectWithValue(err.response?.data?.message || "خطای سرور");
+    }
+    return rejectWithValue("خطای نامشخص");
+  }
+});
