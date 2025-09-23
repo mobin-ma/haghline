@@ -1,15 +1,16 @@
 "use client";
-//09368112525 کاربرحقوق
 
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
-import { getUserInfo } from '@/store/authThunks';
-import { useAppDispatch } from '@/hooks/useAppDispatch';
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { getUserInfo } from "@/store/authThunks";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
 
 export default function LegalUserDashboard() {
   const dispatch = useAppDispatch();
-  const { userInfo, userInfoLoading, userInfoError } = useSelector((state: RootState) => state.auth);
+  const { userInfo, userInfoLoading, userInfoError } = useSelector(
+    (state: RootState) => state.auth
+  );
 
   useEffect(() => {
     dispatch(getUserInfo());
@@ -46,13 +47,17 @@ export default function LegalUserDashboard() {
               <label className="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">
                 شماره تلفن
               </label>
-              <p className="text-lg text-gray-900 dark:text-white">{userInfo?.phone_number}</p>
+              <p className="text-lg text-gray-900 dark:text-white">
+                {userInfo?.phone_number}
+              </p>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">
                 نام شرکت
               </label>
-              <p className="text-lg text-gray-900 dark:text-white">{userInfo?.company_name || 'تعریف نشده'}</p>
+              <p className="text-lg text-gray-900 dark:text-white">
+                {userInfo?.company_name || "تعریف نشده"}
+              </p>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
-import { updateUserInfo, UserInfo } from '@/store/authThunks';
-import { useAppDispatch } from '@/hooks/useAppDispatch';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { updateUserInfo, UserInfo } from "@/store/authThunks";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
 
 interface EditLegalUserProps {
   onClose: () => void;
@@ -12,35 +12,37 @@ interface EditLegalUserProps {
 
 export default function EditLegalUser({ onClose }: EditLegalUserProps) {
   const dispatch = useAppDispatch();
-  const { userInfo, userInfoLoading, userInfoError } = useSelector((state: RootState) => state.auth);
+  const { userInfo, userInfoLoading, userInfoError } = useSelector(
+    (state: RootState) => state.auth
+  );
   const [formData, setFormData] = useState<Partial<UserInfo>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (userInfo) {
       setFormData({
-        company_name: userInfo.company_name || '',
+        company_name: userInfo.company_name || "",
       });
     }
   }, [userInfo]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       await dispatch(updateUserInfo(formData)).unwrap();
       onClose(); // بستن صفحه بعد از موفقیت
     } catch (error) {
-      console.error('خطا در به‌روزرسانی:', error);
+      console.error("خطا در به‌روزرسانی:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -79,7 +81,7 @@ export default function EditLegalUser({ onClose }: EditLegalUserProps) {
             <input
               type="text"
               name="company_name"
-              value={formData.company_name || ''}
+              value={formData.company_name || ""}
               onChange={handleInputChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
               required
@@ -92,7 +94,7 @@ export default function EditLegalUser({ onClose }: EditLegalUserProps) {
               disabled={isSubmitting}
               className="flex-1 bg-green-500 border-2 border-green-500 hover:bg-transparent hover:text-green-500 cursor-pointer disabled:bg-green-300 text-white px-6 py-3 rounded-lg transition-colors font-medium"
             >
-              {isSubmitting ? 'در حال ذخیره...' : 'ذخیره تغییرات'}
+              {isSubmitting ? "در حال ذخیره..." : "ذخیره تغییرات"}
             </button>
             <button
               type="button"

@@ -22,21 +22,23 @@ export default function Profile() {
 
   const getInitials = (userInfo: UserInfo | undefined) => {
     if (!userInfo) return "U";
-    
+
     if (userInfo.user_type === "legal" && userInfo.company_name) {
       return userInfo.company_name.charAt(0).toUpperCase();
     } else if (userInfo.first_name && userInfo.last_name) {
-      return (userInfo.first_name.charAt(0) + userInfo.last_name.charAt(0)).toUpperCase();
+      return (
+        userInfo.first_name.charAt(0) + userInfo.last_name.charAt(0)
+      ).toUpperCase();
     } else if (userInfo.first_name) {
       return userInfo.first_name.charAt(0).toUpperCase();
     }
-    
+
     return "U";
   };
 
   const getDisplayName = (userInfo: UserInfo | undefined) => {
     if (!userInfo) return "کاربر";
-    
+
     if (userInfo.user_type === "legal" && userInfo.company_name) {
       return userInfo.company_name;
     } else if (userInfo.first_name && userInfo.last_name) {
@@ -44,7 +46,7 @@ export default function Profile() {
     } else if (userInfo.first_name) {
       return userInfo.first_name;
     }
-    
+
     return "کاربر";
   };
 
@@ -65,7 +67,7 @@ export default function Profile() {
       >
         {getInitials(userInfo)}
       </button>
-      
+
       <AnimatePresence>
         {showEditList && (
           <motion.div
@@ -82,7 +84,9 @@ export default function Profile() {
                   {getDisplayName(userInfo)}
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {userInfo?.user_type === "legal" ? "کاربر حقوقی" : "کاربر حقیقی"}
+                  {userInfo?.user_type === "legal"
+                    ? "کاربر حقوقی"
+                    : "کاربر حقیقی"}
                 </p>
               </div>
               <div className="space-y-1">
@@ -112,7 +116,6 @@ export default function Profile() {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="fixed top-[260%] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-zinc-900 z-50 overflow-y-auto shadow-lg rounded-lg"
           >
-
             <div className="bg-white dark:bg-zinc-900 border-b border-gray-200 dark:border-zinc-700 p-4 flex justify-between items-center">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 ویرایش اطلاعات

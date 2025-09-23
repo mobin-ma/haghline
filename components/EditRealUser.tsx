@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
-import { updateUserInfo, UserInfo } from '@/store/authThunks';
-import { useAppDispatch } from '@/hooks/useAppDispatch';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { updateUserInfo, UserInfo } from "@/store/authThunks";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
 
 interface EditRealUserProps {
   onClose: () => void;
@@ -12,36 +12,38 @@ interface EditRealUserProps {
 
 export default function EditRealUser({ onClose }: EditRealUserProps) {
   const dispatch = useAppDispatch();
-  const { userInfo, userInfoLoading, userInfoError } = useSelector((state: RootState) => state.auth);
+  const { userInfo, userInfoLoading, userInfoError } = useSelector(
+    (state: RootState) => state.auth
+  );
   const [formData, setFormData] = useState<Partial<UserInfo>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (userInfo) {
       setFormData({
-        first_name: userInfo.first_name || '',
-        last_name: userInfo.last_name || '',
+        first_name: userInfo.first_name || "",
+        last_name: userInfo.last_name || "",
       });
     }
   }, [userInfo]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       await dispatch(updateUserInfo(formData)).unwrap();
       onClose(); // بستن صفحه بعد از موفقیت
     } catch (error) {
-      console.error('خطا در به‌روزرسانی:', error);
+      console.error("خطا در به‌روزرسانی:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -81,7 +83,7 @@ export default function EditRealUser({ onClose }: EditRealUserProps) {
               <input
                 type="text"
                 name="first_name"
-                value={formData.first_name || ''}
+                value={formData.first_name || ""}
                 onChange={handleInputChange}
                 className="w-full px-3 py-2 bg-white/10 dark:bg-zinc-700/20 border border-white/20 dark:border-zinc-600/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 backdrop-blur-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                 required
@@ -94,7 +96,7 @@ export default function EditRealUser({ onClose }: EditRealUserProps) {
               <input
                 type="text"
                 name="last_name"
-                value={formData.last_name || ''}
+                value={formData.last_name || ""}
                 onChange={handleInputChange}
                 className="w-full px-3 py-2 bg-white/10 dark:bg-zinc-700/20 border border-white/20 dark:border-zinc-600/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 backdrop-blur-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
                 required
@@ -108,7 +110,7 @@ export default function EditRealUser({ onClose }: EditRealUserProps) {
               disabled={isSubmitting}
               className="flex-1 bg-green-500 hover:bg-green-600 disabled:bg-green-300 text-white px-6 py-3 rounded-lg transition-colors font-medium"
             >
-              {isSubmitting ? 'در حال ذخیره...' : 'ذخیره تغییرات'}
+              {isSubmitting ? "در حال ذخیره..." : "ذخیره تغییرات"}
             </button>
             <button
               type="button"
