@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { getUserInfo } from "@/store/authThunks";
-import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { useAppDispatch } from "@/hooks/useAppDispatch ";
 
 export default function RealUserDashboard() {
   const dispatch = useAppDispatch();

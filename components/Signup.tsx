@@ -4,7 +4,7 @@ import * as motion from "motion/react-client";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { loginUser, registerUser, verifyOtpUser } from "@/store/authThunks";
-import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { useAppDispatch } from "@/hooks/useAppDispatch ";
 import { setLocalError } from "@/store/authSlice";
 import { Transition } from "motion";
 
@@ -105,7 +105,7 @@ export default function Signup({ toggleMode }: SignupProps) {
         ? { user_type: typeUser, phone_number: phone }
         : { user_type: typeUser, phone_number: phone };
 
-    await dispatch(loginUser(payload)); 
+    await dispatch(loginUser(payload));
     setTimer(60);
     setResendAllowed(false);
   };

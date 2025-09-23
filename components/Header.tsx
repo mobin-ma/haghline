@@ -9,7 +9,7 @@ import ThemeToggle from "./ThemeToggle";
 import Image from "next/image";
 import logo from "@/public/images/logo.png";
 import logoDark from "@/public/images/logo-dark.png";
-import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { useAppDispatch } from "@/hooks/useAppDispatch ";
 import Link from "next/link";
 import { setMode } from "@/store/authSlice";
 
@@ -168,7 +168,7 @@ export default function Header({ welcomeRef }: HeaderProps) {
               <ul className="flex flex-col gap-4 font-bold">
                 <span className="w-full flex justify-between items-center">
                   <ThemeToggle />
-                  <IoMdClose onClick={() => setMenuToggle(false)}/>
+                  <IoMdClose onClick={() => setMenuToggle(false)} />
                 </span>
                 <div className="flex justify-center items-center gap-5">
                   <Link
