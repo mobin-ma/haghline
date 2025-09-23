@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { setLocalError } from "@/store/authSlice";
 import { Transition } from "motion";
-import { useAppDispatch } from "@/hooks/useAppDispatch ";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import LoadingButton from "./LoadingButton";
 
 type LoginProps = {
   toggleMode: () => void;
@@ -128,12 +129,14 @@ export default function Login({ toggleMode }: LoginProps) {
               onChange={(e) => setPhone(e.target.value)}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
             />
-            <button
+            <LoadingButton
               type="submit"
+              loading={loading}
+              loadingText="در حال ورود..."
               className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:border-2 dark:border-amber-500 dark:hover:border-amber-500 dark:hover:bg-transparent"
             >
-              {loading ? "در حال ورود..." : "ورود"}
-            </button>
+              ورود
+            </LoadingButton>
           </form>
         ) : (
           <motion.form
@@ -158,12 +161,14 @@ export default function Login({ toggleMode }: LoginProps) {
               onChange={(e) => setOtp(e.target.value)}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
             />
-            <button
+            <LoadingButton
               type="submit"
+              loading={loading}
+              loadingText="در حال تایید..."
               className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:border-2 dark:border-amber-500 dark:hover:border-amber-500 dark:hover:bg-transparent"
             >
               تایید کد
-            </button>
+            </LoadingButton>
             <div className="w-full flex flex-col items-center gap-2">
               <button
                 type="button"

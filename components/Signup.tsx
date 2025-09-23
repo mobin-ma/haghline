@@ -4,7 +4,8 @@ import * as motion from "motion/react-client";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { loginUser, registerUser, verifyOtpUser } from "@/store/authThunks";
-import { useAppDispatch } from "@/hooks/useAppDispatch ";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import LoadingButton from "./LoadingButton";
 import { setLocalError } from "@/store/authSlice";
 import { Transition } from "motion";
 
@@ -181,13 +182,14 @@ export default function Signup({ toggleMode }: SignupProps) {
                 حقوقی
               </label>
             </div>
-            <button
+            <LoadingButton
               type="submit"
-              disabled={loading}
+              loading={loading}
+              loadingText="در حال ثبت نام..."
               className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:border-2 dark:border-amber-500 dark:hover:border-amber-500 dark:hover:bg-transparent"
             >
-              {loading ? "در حال ثبت نام..." : "ثبت نام"}
-            </button>
+              ثبت نام
+            </LoadingButton>
           </form>
         ) : (
           <motion.form
@@ -212,12 +214,14 @@ export default function Signup({ toggleMode }: SignupProps) {
               onChange={(e) => setOtp(e.target.value)}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
             />
-            <button
+            <LoadingButton
               type="submit"
+              loading={loading}
+              loadingText="در حال تایید..."
               className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:border-2 dark:border-amber-500 dark:hover:border-amber-500 dark:hover:bg-transparent"
             >
               تایید کد
-            </button>
+            </LoadingButton>
             <div className="w-full flex flex-col items-center gap-2">
               <button
                 type="button"
@@ -236,12 +240,12 @@ export default function Signup({ toggleMode }: SignupProps) {
       </div>
       <div className="w-full text-center">
         <p className="text-gray-600 dark:text-gray-200">
-          قبلا ثبت نام کرده اید؟{" "}
+          قبلا ثبت نام کرده اید؟
           <span
             onClick={toggleMode}
             className="text-zinc-900 dark:text-amber-400 font-bold cursor-pointer transition-colors hover:text-zinc-600 dark:hover:text-amber-600 hover:underline"
           >
-            ورورد
+            ورود
           </span>
         </p>
       </div>

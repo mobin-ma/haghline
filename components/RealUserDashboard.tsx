@@ -4,7 +4,8 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { getUserInfo } from "@/store/authThunks";
-import { useAppDispatch } from "@/hooks/useAppDispatch ";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function RealUserDashboard() {
   const dispatch = useAppDispatch();
@@ -17,11 +18,7 @@ export default function RealUserDashboard() {
   }, [dispatch]);
 
   if (userInfoLoading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
-      </div>
-    );
+    return <LoadingSpinner size="lg" text="در حال بارگذاری اطلاعات..." />;
   }
 
   if (userInfoError) {

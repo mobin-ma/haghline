@@ -7,10 +7,7 @@ interface UserState {
 }
 
 const initialState: UserState = {
-  typeUser:
-    typeof window !== "undefined"
-      ? (localStorage.getItem("typeUser") as TypeUser) ?? "individual"
-      : "individual",
+  typeUser: "individual"
 };
 
 const typeUserSlice = createSlice({

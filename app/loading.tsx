@@ -1,23 +1,5 @@
-"use client";
-
-import * as motion from "motion/react-client";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 export default function Loading() {
-  return (
-    <div className="w-full h-screen flex flex-col gap-6 items-center justify-center bg-white dark:bg-zinc-900">
-      <motion.div
-        className="w-16 h-16 border-4 border-zinc-600 dark:border-amber-600 dark:border-t-transparent border-t-transparent rounded-full"
-        animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-      />
-
-      <motion.p
-        className="text-xl font-bold text-zinc-700 dark:text-amber-600"
-        animate={{ opacity: [0, 1, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        در حال بارگذاری...
-      </motion.p>
-    </div>
-  );
+  return <LoadingSpinner size="lg" text="در حال بارگذاری..." fullScreen={true} />;
 }

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { getUserInfo, UserInfo } from "@/store/authThunks";
-import { useAppDispatch } from "@/hooks/useAppDispatch ";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
 import EditRealUser from "./EditRealUser";
 import EditLegalUser from "./EditLegalUser";
 

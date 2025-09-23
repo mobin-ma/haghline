@@ -4,7 +4,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { updateUserInfo, UserInfo } from "@/store/authThunks";
-import { useAppDispatch } from "@/hooks/useAppDispatch ";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import LoadingSpinner from "./LoadingSpinner";
+import LoadingButton from "./LoadingButton";
 
 interface EditRealUserProps {
   onClose: () => void;
@@ -50,11 +52,7 @@ export default function EditRealUser({ onClose }: EditRealUserProps) {
   };
 
   if (userInfoLoading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
-      </div>
-    );
+    return <LoadingSpinner size="md" text="در حال بارگذاری..." />;
   }
 
   if (userInfoError) {
@@ -105,13 +103,14 @@ export default function EditRealUser({ onClose }: EditRealUserProps) {
           </div>
 
           <div className="flex gap-3 pt-4">
-            <button
+            <LoadingButton
               type="submit"
-              disabled={isSubmitting}
-              className="flex-1 bg-green-500 hover:bg-green-600 disabled:bg-green-300 text-white px-6 py-3 rounded-lg transition-colors font-medium"
+              loading={isSubmitting}
+              loadingText="در حال ذخیره..."
+              className="flex-1 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition-colors font-medium"
             >
-              {isSubmitting ? "در حال ذخیره..." : "ذخیره تغییرات"}
-            </button>
+              ذخیره تغییرات
+            </LoadingButton>
             <button
               type="button"
               onClick={onClose}
