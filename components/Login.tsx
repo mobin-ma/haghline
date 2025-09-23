@@ -1,4 +1,3 @@
-import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { loginUser, verifyOtpUser } from "@/store/authThunks";
 import { RootState } from "@/store/store";
 import { setUser } from "@/store/typeUserSlice";
@@ -7,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { setLocalError } from "@/store/authSlice";
 import { Transition } from "motion";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
 
 type LoginProps = {
   toggleMode: () => void;
