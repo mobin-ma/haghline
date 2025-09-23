@@ -5,7 +5,7 @@ import { RootState } from "@/store/store";
 import { setUser } from "@/store/typeUserSlice";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { useAppDispatch } from "@/hooks/useAppDispatch ";
 
 // 09365551122  حقوقی
 // 09365551121 حقیقی
