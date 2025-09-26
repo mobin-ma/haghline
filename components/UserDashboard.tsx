@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { getUserInfo } from "@/store/authThunks";
-import { useAppDispatch } from "@/hooks/useAppDispatch ";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
 import LoadingSpinner from "./LoadingSpinner";
 import { CiUser, CiPhone, CiEdit, CiCalendar } from "react-icons/ci";
 import {
