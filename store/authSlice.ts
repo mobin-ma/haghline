@@ -57,6 +57,9 @@ const authSlice = createSlice({
       state.error = null;
       state.success = false;
     },
+    clearUserInfoError: (state) => {
+      state.userInfoError = null;
+    },
     setToken: (state, action: PayloadAction<TokenPayload | undefined>) => {
       state.token = action.payload;
       if (typeof window !== "undefined") {
@@ -145,7 +148,6 @@ const authSlice = createSlice({
       .addCase(getUserInfo.fulfilled, (state, action) => {
         state.userInfoLoading = false;
         state.userInfo = action.payload;
-        console.log(action.payload);
       })
       .addCase(getUserInfo.rejected, (state, action) => {
         state.userInfoLoading = false;
@@ -174,6 +176,7 @@ export const {
   setLocalError,
   logout,
   clearMessages,
+  clearUserInfoError,
   setToken,
 } = authSlice.actions;
 export default authSlice.reducer;

@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { updateUserInfo, UserInfo } from "@/store/authThunks";
 import { useAppDispatch } from "@/hooks/useAppDispatch ";
-import LoadingSpinner from "./LoadingSpinner";
 import LoadingButton from "./LoadingButton";
 
 interface EditLegalUserProps {
@@ -14,7 +13,7 @@ interface EditLegalUserProps {
 
 export default function EditLegalUser({ onClose }: EditLegalUserProps) {
   const dispatch = useAppDispatch();
-  const { userInfo, userInfoLoading, userInfoError } = useSelector(
+  const { userInfo, userInfoLoading } = useSelector(
     (state: RootState) => state.auth
   );
   const [formData, setFormData] = useState<Partial<UserInfo>>({});
@@ -39,10 +38,9 @@ export default function EditLegalUser({ onClose }: EditLegalUserProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
       await dispatch(updateUserInfo(formData)).unwrap();
-      onClose(); // بستن صفحه بعد از موفقیت
+      onClose();
     } catch (error) {
       console.error("خطا در به‌روزرسانی:", error);
     } finally {
@@ -50,25 +48,15 @@ export default function EditLegalUser({ onClose }: EditLegalUserProps) {
     }
   };
 
-  if (userInfoLoading) {
-    return <LoadingSpinner size="md" text="در حال بارگذاری..." />;
-  }
-
-  if (userInfoError) {
-    return (
-      <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-        {userInfoError}
-      </div>
-    );
-  }
-
   return (
-    <div className="w-full">
-      <div className="bg-gray-200 dark:bg-zinc-800 rounded-lg p-8 min-h-[400px] flex flex-col justify-center">
+    <div className={`w-full ${userInfoLoading ? "opacity-50 blur-sm" : ""}`}>
+      <div className="bg-white/5 dark:bg-zinc-800/5 backdrop-blur-sm rounded-lg shadow-lg p-8 min-h-[400px] flex flex-col justify-center border border-white/10 dark:border-zinc-700/20">
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-            ویرایش اطلاعات کاربر حقوقی
-          </h1>
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+              ویرایش اطلاعات کاربر حقوقی
+            </h1>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -81,7 +69,7 @@ export default function EditLegalUser({ onClose }: EditLegalUserProps) {
               name="company_name"
               value={formData.company_name || ""}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-zinc-700 dark:border-zinc-600 dark:text-white"
+              className="w-full px-3 py-2 bg-white/10 dark:bg-zinc-700/20 border border-white/20 dark:border-zinc-600/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500/50 backdrop-blur-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
               required
             />
           </div>
@@ -91,14 +79,14 @@ export default function EditLegalUser({ onClose }: EditLegalUserProps) {
               type="submit"
               loading={isSubmitting}
               loadingText="در حال ذخیره..."
-              className="flex-1 bg-green-500 border-2 border-green-500 hover:bg-transparent hover:text-green-500 cursor-pointer text-white px-6 py-3 rounded-lg transition-colors font-medium"
+              className="flex-1 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition-colors font-medium"
             >
               ذخیره تغییرات
             </LoadingButton>
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 bg-rose-500 border-2 border-rose-500 hover:bg-transparent hover:text-rose-500 cursor-pointer text-white px-6 py-3 rounded-lg transition-colors font-medium"
+              className="flex-1 bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg transition-colors font-medium"
             >
               لغو
             </button>

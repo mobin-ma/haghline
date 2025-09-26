@@ -56,16 +56,10 @@ export default function Login({ toggleMode }: LoginProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const payload =
-      typeUser === "individual"
-        ? {
-            user_type: typeUser,
-            phone_number: phone,
-          }
-        : {
-            user_type: typeUser,
-            phone_number: phone,
-          };
+    const payload = {
+      phone_number: phone,
+    };
+
     const result = await dispatch(loginUser(payload));
 
     if (loginUser.fulfilled.match(result)) {
@@ -86,18 +80,13 @@ export default function Login({ toggleMode }: LoginProps) {
       setTimeout(() => {
         window.location.href = "/dashboard";
       }, 1000);
-    } else if (verifyOtpUser.rejected.match(result)) {
-      setLocalError(result.payload || "کد تایید اشتباه است");
     }
   };
 
   const handleResend = async () => {
     if (!resendAllowed) return;
 
-    const payload =
-      typeUser === "individual"
-        ? { user_type: typeUser, phone_number: phone }
-        : { user_type: typeUser, phone_number: phone };
+    const payload = { phone_number: phone };
 
     await dispatch(loginUser(payload));
     setTimer(60);

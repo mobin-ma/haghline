@@ -1,7 +1,6 @@
 "use client";
-import { useRef } from "react";
 import dynamic from "next/dynamic";
-import Header from "@/components/Header";
+import LandingNav from "@/components/LandingNav";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
@@ -30,12 +29,11 @@ const LawyerShowcase = dynamic(() => import("@/components/LawyerShowcase"), {
 });
 
 export default function Home() {
-  const welcomeRef = useRef<HTMLDivElement>(null);
   return (
     <PublicRoute>
       <div>
-        <Welcome ref={welcomeRef} />
-        <Header welcomeRef={welcomeRef} />
+        <LandingNav />
+        <Welcome />
         <Hero />
         <Features />
         <HowItWorks />

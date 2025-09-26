@@ -24,14 +24,13 @@ export const registerUser = createAsyncThunk<
     return res.data;
   } catch (err: unknown) {
     if (err instanceof AxiosError) {
-      return rejectWithValue(err.response?.data?.message || "خطای سرور");
+      return rejectWithValue(err.response?.data?.error || "خطای سرور");
     }
     return rejectWithValue("خطای نامشخص");
   }
 });
 
 interface LoginPayload {
-  user_type: "individual" | "legal";
   phone_number: string;
 }
 
@@ -49,7 +48,7 @@ export const loginUser = createAsyncThunk<
     return res.data;
   } catch (err: unknown) {
     if (err instanceof AxiosError) {
-      return rejectWithValue(err.response?.data?.message || "خطای سرور");
+      return rejectWithValue(err.response?.data?.error || "خطای سرور");
     }
     return rejectWithValue("خطای نامشخص");
   }
@@ -75,7 +74,7 @@ export const verifyOtpUser = createAsyncThunk<
     return res.data;
   } catch (err: unknown) {
     if (err instanceof AxiosError) {
-      return rejectWithValue(err.response?.data?.message || "خطای سرور");
+      return rejectWithValue(err.response?.data?.error || "خطای سرور");
     }
     return rejectWithValue("خطای نامشخص");
   }
@@ -96,7 +95,7 @@ export const refreshToken = createAsyncThunk<
     return res.data;
   } catch (err: unknown) {
     if (err instanceof AxiosError) {
-      return rejectWithValue(err.response?.data?.message || "خطای سرور");
+      return rejectWithValue(err.response?.data?.error || "خطای سرور");
     }
     return rejectWithValue("خطای نامشخص");
   }
@@ -106,9 +105,9 @@ export const refreshToken = createAsyncThunk<
 export interface UserInfo {
   phone_number: string;
   user_type: "individual" | "legal";
-  first_name: string;
-  last_name: string;
-  company_name: string;
+  first_name?: string;
+  last_name?: string;
+  company_name?: string;
 }
 
 // Get User Info
@@ -122,7 +121,7 @@ export const getUserInfo = createAsyncThunk<
     return res.data;
   } catch (err: unknown) {
     if (err instanceof AxiosError) {
-      return rejectWithValue(err.response?.data?.message || "خطای سرور");
+      return rejectWithValue(err.response?.data?.error || "خطای سرور");
     }
     return rejectWithValue("خطای نامشخص");
   }
@@ -139,7 +138,7 @@ export const updateUserInfo = createAsyncThunk<
     return res.data;
   } catch (err: unknown) {
     if (err instanceof AxiosError) {
-      return rejectWithValue(err.response?.data?.message || "خطای سرور");
+      return rejectWithValue(err.response?.data?.error || "خطای سرور");
     }
     return rejectWithValue("خطای نامشخص");
   }

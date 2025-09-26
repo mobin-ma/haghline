@@ -85,7 +85,6 @@ export default function Signup({ toggleMode }: SignupProps) {
       phone_number: phone,
       code: otp,
     };
-    console.log(payload);
 
     const result = await dispatch(verifyOtpUser(payload));
 

@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { updateUserInfo, UserInfo } from "@/store/authThunks";
 import { useAppDispatch } from "@/hooks/useAppDispatch ";
-import LoadingSpinner from "./LoadingSpinner";
 import LoadingButton from "./LoadingButton";
 
 interface EditRealUserProps {
@@ -14,7 +13,7 @@ interface EditRealUserProps {
 
 export default function EditRealUser({ onClose }: EditRealUserProps) {
   const dispatch = useAppDispatch();
-  const { userInfo, userInfoLoading, userInfoError } = useSelector(
+  const { userInfo, userInfoLoading } = useSelector(
     (state: RootState) => state.auth
   );
   const [formData, setFormData] = useState<Partial<UserInfo>>({});
@@ -51,25 +50,15 @@ export default function EditRealUser({ onClose }: EditRealUserProps) {
     }
   };
 
-  if (userInfoLoading) {
-    return <LoadingSpinner size="md" text="در حال بارگذاری..." />;
-  }
-
-  if (userInfoError) {
-    return (
-      <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
-        {userInfoError}
-      </div>
-    );
-  }
-
   return (
-    <div className="w-full">
+    <div className={`w-full ${userInfoLoading ? "opacity-50 blur-sm" : ""}`}>
       <div className="bg-white/5 dark:bg-zinc-800/5 backdrop-blur-sm rounded-lg shadow-lg p-8 min-h-[400px] flex flex-col justify-center border border-white/10 dark:border-zinc-700/20">
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-            ویرایش اطلاعات کاربر حقیقی
-          </h1>
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+              ویرایش اطلاعات کاربر حقیقی
+            </h1>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">

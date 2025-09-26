@@ -60,7 +60,7 @@ export default function Header({ welcomeRef }: HeaderProps) {
        w-full flex justify-between items-center px-8 py-4 transition-all duration-300 gap-10
       ${
         isSticky
-          ? "fixed top-0 left-0 bg-white dark:bg-zinc-800 shadow-lg shadow-zinc-900/20 z-50"
+          ? "fixed top-0 left-0 bg-white/90 dark:bg-zinc-800/90 backdrop-blur-xl shadow-lg shadow-zinc-900/10 z-50 border-b border-zinc-200/50 dark:border-zinc-700/50"
           : "relative bg-transparent"
       }
     `}
@@ -105,37 +105,44 @@ export default function Header({ welcomeRef }: HeaderProps) {
             <li key={i}>
               <motion.button
                 onClick={() => scrollTo(sec.id, 1.2)}
-                className="w-full relative px-2 py-1 transition-all cursor-pointer text-sm lg:text-base hover:text-2xl"
+                className="w-full relative px-4 py-2 transition-all cursor-pointer text-sm lg:text-base rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-700/50"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <span
-                  className={`w-full transition-colors ${
+                  className={`w-full transition-colors font-medium ${
                     active === sec.id
-                      ? "text-zinc-900 dark:text-amber-500"
-                      : "text-zinc-500 dark:text-zinc-100"
+                      ? "text-amber-600 dark:text-amber-400"
+                      : "text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white"
                   }`}
                 >
                   {sec.label}
                 </span>
                 {active === sec.id && (
-                  <motion.span className="absolute left-0 bottom-0 w-full h-1 bg-zinc-900 dark:bg-amber-500 rounded" />
+                  <motion.span
+                    className="absolute left-0 bottom-0 w-full h-0.5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full"
+                    layoutId="activeTab"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
                 )}
               </motion.button>
             </li>
           ))}
         </ul>
       </nav>
-      <div className="w-[25%] hidden md:flex justify-between items-center border-r-2 border-gray-300 dark:border-amber-500 pr-5 gap-2">
+      <div className="w-[25%] hidden md:flex justify-between items-center pr-5 gap-3">
         <Link
           href={"/authpage"}
           onClick={() => dispatch(setMode("login"))}
-          className="bg-zinc-900 dark:bg-amber-500 text-white text-sm lg:text-lg w-16 h-8 lg:w-20 lg:h-10 font-bold rounded-lg border-2 border-zinc-900 dark:border-amber-500 hover:bg-transparent hover:text-zinc-900 dark:hover:text-amber-500 transition-colors cursor-pointer flex justify-center items-center"
+          className="group relative px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-sm font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
         >
-          ورود
+          <span className="relative z-10">ورود</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </Link>
         <Link
           href={"/authpage"}
           onClick={() => dispatch(setMode("signup"))}
-          className="bg-transparent text-zinc-900 dark:text-amber-500 text-sm lg:text-lg w-16 h-8 lg:w-20 lg:h-10 font-bold rounded-lg border-2 border-zinc-900 dark:border-amber-500 hover:bg-zinc-900 dark:hover:bg-amber-500 hover:text-white transition-colors cursor-pointer flex justify-center items-center"
+          className="px-4 py-2 border-2 border-amber-500 text-amber-600 dark:text-amber-400 text-sm font-bold rounded-xl hover:bg-amber-500 hover:text-white transition-all duration-300 hover:scale-105"
         >
           ثبت نام
         </Link>
@@ -163,25 +170,25 @@ export default function Header({ welcomeRef }: HeaderProps) {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.3 }}
-              className="fixed top-0 right-0 w-3/4 h-full bg-white dark: dark:bg-zinc-800 shadow-lg p-6 flex flex-col gap-6 z-50 md:hidden"
+              className="fixed top-0 right-0 w-3/4 h-full bg-white/95 dark:bg-zinc-800/95 backdrop-blur-xl shadow-2xl p-6 flex flex-col gap-6 z-50 md:hidden border-l border-zinc-200/50 dark:border-zinc-700/50"
             >
               <ul className="flex flex-col gap-4 font-bold">
                 <span className="w-full flex justify-between items-center">
                   <ThemeToggle />
                   <IoMdClose onClick={() => setMenuToggle(false)} />
                 </span>
-                <div className="flex justify-center items-center gap-5">
+                <div className="flex justify-center items-center gap-4">
                   <Link
                     href={"/authpage"}
                     onClick={() => dispatch(setMode("login"))}
-                    className="bg-zinc-900 dark:bg-amber-500 text-white text-sm w-16 h-8 font-bold rounded-lg border-2 border-zinc-900 dark:border-amber-500 hover:bg-transparent hover:text-zinc-900 dark:hover:text-amber-500 transition-colors cursor-pointer flex justify-center items-center"
+                    className="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-sm font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     ورود
                   </Link>
                   <Link
                     href={"/authpage"}
                     onClick={() => dispatch(setMode("signup"))}
-                    className="bg-transparent text-zinc-900 dark:text-amber-500 text-sm w-16 h-8 font-bold rounded-lg border-2 border-zinc-900 dark:border-amber-500 hover:bg-zinc-900 dark:hover:bg-amber-500 hover:text-white transition-colors cursor-pointer flex justify-center items-center"
+                    className="px-4 py-2 border-2 border-amber-500 text-amber-600 dark:text-amber-400 text-sm font-bold rounded-xl hover:bg-amber-500 hover:text-white transition-all duration-300"
                   >
                     ثبت نام
                   </Link>
@@ -193,10 +200,10 @@ export default function Header({ welcomeRef }: HeaderProps) {
                         scrollTo(sec.id, 1.2);
                         setMenuToggle(false);
                       }}
-                      className={`text-lg ${
+                      className={`text-lg px-4 py-2 rounded-lg transition-all ${
                         active === sec.id
-                          ? "text-zinc-900 dark:text-amber-600"
-                          : "text-zinc-500 dark:text-white"
+                          ? "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20"
+                          : "text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-700/50"
                       }`}
                     >
                       {sec.label}
