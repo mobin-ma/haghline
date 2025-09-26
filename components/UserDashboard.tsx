@@ -5,7 +5,7 @@ import { RootState } from "@/store/store";
 import { getUserInfo } from "@/store/authThunks";
 import { useAppDispatch } from "@/hooks/useAppDispatch ";
 import LoadingSpinner from "./LoadingSpinner";
-import { CiUser, CiPhone, CiEdit, CiCalendar, CiStar } from "react-icons/ci";
+import { CiUser, CiPhone, CiEdit, CiCalendar } from "react-icons/ci";
 import {
   FaBuilding,
   FaFileAlt,
