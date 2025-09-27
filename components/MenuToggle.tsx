@@ -12,15 +12,17 @@ import {
   FaChartBar,
   FaBalanceScale,
 } from "react-icons/fa";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function MenuToggle() {
   const [menuToggle, setMenuToggle] = useState<boolean>(false);
-
+  const pathname = usePathname();
   const menuItems = [
-    { icon: CiHome, label: "خانه", href: "/dashboard", active: true },
+    { icon: CiHome, label: "خانه", href: "/dashboard" },
+    { icon: CiFileOn, label: "پرونده‌ها", href: "/dashboard/cases" },
     { icon: FaGavel, label: "وکلای من", href: "/dashboard/lawyers" },
     { icon: FaComments, label: "پیام‌ها", href: "/dashboard/messages" },
-    { icon: CiFileOn, label: "پرونده‌ها", href: "/dashboard/cases" },
     { icon: FaChartBar, label: "گزارشات", href: "/dashboard/reports" },
     { icon: CiSettings, label: "تنظیمات", href: "/dashboard/settings" },
   ];
@@ -87,31 +89,33 @@ export default function MenuToggle() {
               {/* Navigation Menu */}
               <nav className="p-4">
                 <ul className="space-y-2">
-                  {menuItems.map((item, index) => (
-                    <li key={index}>
-                      <a
-                        href={item.href}
-                        onClick={() => setMenuToggle(false)}
-                        className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
-                          item.active
-                            ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/25"
-                            : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-zinc-700 hover:text-amber-600 dark:hover:text-amber-400"
-                        }`}
-                      >
-                        <item.icon
-                          className={`text-lg ${
-                            item.active
-                              ? "text-white"
-                              : "text-slate-500 dark:text-slate-400 group-hover:text-amber-600 dark:group-hover:text-amber-400"
+                  {menuItems.map((item, index) => {
+                    const isActive = pathname === item.href;
+                    return (
+                      <li key={index}>
+                        <Link
+                          href={item.href}
+                          className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
+                            isActive
+                              ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/25"
+                              : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-zinc-700 hover:text-amber-600 dark:hover:text-amber-400"
                           }`}
-                        />
-                        <span className="font-medium">{item.label}</span>
-                        {item.active && (
-                          <div className="ml-auto w-2 h-2 bg-white rounded-full"></div>
-                        )}
-                      </a>
-                    </li>
-                  ))}
+                        >
+                          <item.icon
+                            className={`text-lg ${
+                              isActive
+                                ? "text-white"
+                                : "text-slate-500 dark:text-slate-400 group-hover:text-amber-600 dark:group-hover:text-amber-400"
+                            }`}
+                          />
+                          <span className="font-medium">{item.label}</span>
+                          {isActive && (
+                            <div className="ml-auto w-2 h-2 bg-white rounded-full"></div>
+                          )}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </nav>
 

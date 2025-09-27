@@ -104,7 +104,7 @@ export default function Cases() {
   }
 
   return (
-    <div className="w-1/2 md:w-2/3 lg:w-full md:mx-auto space-y-6">
+    <div className="mx-auto space-y-6">
       {/* Case Alert */}
       <CaseAlert
         type={alertType}
