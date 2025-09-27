@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import { FaBalanceScale } from "react-icons/fa";
 
 interface LoadingSpinnerProps {
   size?: "sm" | "md" | "lg";
@@ -42,7 +41,7 @@ export default function LoadingSpinner({
       <div className="relative">
         {/* Outer Rotating Ring */}
         <motion.div
-          className={`${sizeClasses[size]} border-4 border-transparent border-t-amber-500 border-r-blue-500 rounded-full`}
+          className={`${sizeClasses[size]} border-4 border-transparent border-t-amber-500 rounded-full`}
           animate={{ rotate: 360 }}
           transition={{
             repeat: Infinity,
@@ -50,62 +49,6 @@ export default function LoadingSpinner({
             ease: "linear",
           }}
         />
-
-        {/* Inner Rotating Ring */}
-        <motion.div
-          className={`absolute inset-2 ${
-            sizeClasses[size === "sm" ? "sm" : size === "md" ? "md" : "lg"]
-          } border-4 border-transparent border-b-purple-500 border-l-green-500 rounded-full`}
-          animate={{ rotate: -360 }}
-          transition={{
-            repeat: Infinity,
-            duration: 1.5,
-            ease: "linear",
-          }}
-        />
-
-        {/* Center Icon */}
-        <motion.div
-          className="absolute inset-0 flex items-center justify-center"
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 5, -5, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <FaBalanceScale
-            className={`${iconSizeClasses[size]} text-amber-600 dark:text-amber-400`}
-          />
-        </motion.div>
-      </div>
-
-      {/* Floating Particles */}
-      <div className="relative">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full"
-            style={{
-              left: `${20 + i * 15}px`,
-              top: `${10 + i * 5}px`,
-            }}
-            animate={{
-              y: [-10, 10, -10],
-              opacity: [0.3, 1, 0.3],
-              scale: [0.8, 1.2, 0.8],
-            }}
-            transition={{
-              duration: 2 + i * 0.2,
-              repeat: Infinity,
-              delay: i * 0.1,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
       </div>
 
       {/* Loading Text */}
@@ -117,7 +60,7 @@ export default function LoadingSpinner({
           transition={{ duration: 0.5 }}
         >
           <motion.p
-            className={`${textSizeClasses[size]} font-bold text-slate-700 dark:text-slate-300 mb-2`}
+            className={`${textSizeClasses[size]} font-bold text-amber-500 mb-2`}
             animate={{
               opacity: [0.7, 1, 0.7],
             }}
@@ -129,26 +72,6 @@ export default function LoadingSpinner({
           >
             {text}
           </motion.p>
-
-          {/* Animated Dots */}
-          <div className="flex justify-center gap-1">
-            {[...Array(3)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="w-2 h-2 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"
-                animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 1,
-                  repeat: Infinity,
-                  delay: i * 0.2,
-                  ease: "easeInOut",
-                }}
-              />
-            ))}
-          </div>
         </motion.div>
       )}
 
