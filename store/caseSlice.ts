@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CaseData, getCases, createCase } from "./caseThunks";
+import { CaseData, getCases, createCase, Category, getCategories } from "./caseThunks";
 
 interface CaseState {
     cases: CaseData[];
+    categories: Category[];
     loading: boolean;
     success: boolean;
     error: string | null;
@@ -10,6 +11,7 @@ interface CaseState {
 
 const initialState: CaseState = {
     cases: [],
+    categories: [],
     loading: false,
     success: false,
     error: null,
@@ -55,7 +57,22 @@ const caseSlice = createSlice({
             .addCase(createCase.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload as string || "خطا در ثبت پرونده";
-            });
+            })
+            // Categories
+            .addCase(getCategories.pending, (state) => {
+                state.loading = true;
+                state.success = false;
+                state.error = null;
+            })
+            .addCase(getCategories.fulfilled, (state, action) => {
+                state.loading = false;
+                state.categories = action.payload;
+                state.success = true;
+            })
+            .addCase(getCategories.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload as string || "خطا در دریافت دسته‌بندی‌ها";
+            })
     },
 });
 

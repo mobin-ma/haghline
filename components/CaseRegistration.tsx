@@ -3,7 +3,16 @@
 import React, { useState } from "react";
 import { CaseDataPost, createCase } from "@/store/caseThunks";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { FaFileAlt, FaSave, FaUpload, FaUser, FaLock } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import {
+  FaSave,
+  FaUpload,
+  FaLock,
+} from "react-icons/fa";
+import CaseAlert from "@/components/CaseAlert";
+import LoadingSpinner from "./LoadingSpinner";
+import LoadingButton from "./LoadingButton";
 
 export default function CaseRegistration({
   setShowRegistration,
@@ -12,14 +21,23 @@ export default function CaseRegistration({
 }) {
   const [formData, setFormData] = useState<CaseDataPost>({
     title: "",
-    category: 0,
+    category: 1 || 0,
     description: "",
     hidden_char: [],
     files: [],
   });
 
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState<"success" | "error">("success");
+
   const dispatch = useAppDispatch();
+  const { categories, loading } = useSelector(
+    (state: RootState) => state.cases
+  );
+  console.log(formData);
   
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -50,30 +68,46 @@ export default function CaseRegistration({
     try {
       const result = await dispatch(createCase(formData));
       if (createCase.fulfilled.match(result)) {
-        console.log("Case created successfully");
+        setAlertType("success");
+        setAlertMessage("پرونده با موفقیت ثبت شد");
+        setShowAlert(true);
         // Reset form
         setFormData({
           title: "",
-          category: 0,
+          category: 1 || 0,
           description: "",
           hidden_char: [],
           files: [],
         });
-        // Navigate back to Cases page
-        setShowRegistration(false);
+        // Navigate back to Cases page after 2 seconds
+        setTimeout(() => {
+          setShowRegistration(false);
+        }, 2000);
+      } else if (createCase.rejected.match(result)) {
+        setAlertType("error");
+        setAlertMessage((result.payload as string) || "خطا در ثبت پرونده");
+        setShowAlert(true);
       }
     } catch (error) {
-      console.log(error);
+      setAlertType("error");
+      setAlertMessage("خطای نامشخص در ثبت پرونده");
+      setShowAlert(true);
     }
   };
 
-  const categoryOptions = [
-    { value: 0, label: "کیفری", color: "text-red-500" },
-    { value: 1, label: "حقوقی", color: "text-blue-500" },
-  ];
+  if (loading) {
+    return <LoadingSpinner size="lg" text="در حال ثبت پرونده..." fullScreen={false} />;
+  }
 
   return (
     <div className="space-y-6">
+      {/* Case Alert */}
+      <CaseAlert
+        type={alertType}
+        message={alertMessage}
+        show={showAlert}
+        onClose={() => setShowAlert(false)}
+      />
       {/* Form */}
       <div className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-lg">
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -98,19 +132,21 @@ export default function CaseRegistration({
             <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
               دسته‌بندی
             </label>
-            <select
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-xl border-2 border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-700 text-zinc-900 dark:text-white focus:border-amber-500 dark:focus:border-amber-400 transition-colors"
-              required
-            >
-              {categoryOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
+            <div className="space-y-3">
+              <select
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-xl border-2 border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-700 text-zinc-900 dark:text-white focus:border-amber-500 dark:focus:border-amber-400 transition-colors"
+                required
+              >
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
           {/* Description */}
@@ -172,13 +208,15 @@ export default function CaseRegistration({
 
           {/* Submit Button */}
           <div className="flex justify-end">
-            <button
+            <LoadingButton
               type="submit"
+              loading={loading}
+              loadingText="در حال ثبت پرونده..."
               className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl hover:from-amber-600 hover:to-orange-600 transition-all shadow-lg hover:shadow-xl font-medium"
             >
               <FaSave className="text-lg" />
               ثبت پرونده
-            </button>
+            </LoadingButton>
           </div>
         </form>
       </div>

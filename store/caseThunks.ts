@@ -69,3 +69,27 @@ export const createCase = createAsyncThunk<
 // ویرایش پرونده
 
 // حذف پرونده
+
+// Interface برای Category
+export interface Category {
+    id: number;
+    name: string;
+    is_for_legal_entity: boolean;
+    children: string;
+}
+
+// دریافت لیست دسته‌بندی‌ها
+export const getCategories = createAsyncThunk<
+    Category[],
+    void
+>("cases/getCategories", async (_, { rejectWithValue }) => {
+    try {
+        const response = await api.get("/cases/categories/");
+        return response.data;
+    } catch (err: unknown) {
+        if (err instanceof AxiosError) {
+            return rejectWithValue(err.response?.data?.error || "خطای سرور");
+        }
+        return rejectWithValue("خطای نامشخص");
+    }
+});
