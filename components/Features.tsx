@@ -70,35 +70,20 @@ export default function Features() {
   return (
     <div
       ref={containerRef}
-      className="parallax-container relative min-h-screen py-20"
+      className="parallax-container relative py-12"
       id="features"
     >
-      {/* Parallax Background Layers */}
-      <div className="parallax-bg parallax-layer-1 absolute inset-0 bg-gradient-to-br from-zinc-50 via-blue-50 to-amber-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-amber-900/20" />
-
-      {/* Legal Icons Parallax Layer */}
-      <div className="parallax-layer-2 absolute inset-0 overflow-hidden">
-        <div className="floating-element absolute top-1/4 left-1/4 text-blue-400/10 dark:text-blue-300/10">
-          <FaGavel className="text-8xl" />
-        </div>
-        <div className="floating-element-reverse absolute bottom-1/4 right-1/4 text-amber-400/10 dark:text-amber-300/10">
-          <FaBalanceScale className="text-10xl" />
-        </div>
-        <div className="drifting-element absolute top-1/2 right-1/3 text-green-400/10 dark:text-green-300/10">
-          <FaBookOpen className="text-6xl" />
-        </div>
-      </div>
 
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/20 dark:bg-blue-400/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-amber-200/20 dark:bg-amber-400/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-50 left-30 w-72 h-72 bg-blue-200/20 dark:bg-blue-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-10 w-96 h-96 bg-amber-200/20 dark:bg-amber-400/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -159,26 +144,6 @@ export default function Features() {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-lg text-zinc-600 dark:text-zinc-300 mb-6">
-            آماده‌اید تا از این ویژگی‌ها بهره‌مند شوید؟
-          </p>
-          <motion.button
-            className="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            همین الان شروع کنید
-          </motion.button>
         </motion.div>
       </div>
     </div>

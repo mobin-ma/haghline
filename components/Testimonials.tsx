@@ -109,24 +109,9 @@ export default function Testimonials() {
   return (
     <div
       ref={containerRef}
-      className="parallax-container relative w-full py-20"
+      className="parallax-container relative w-full py-12"
       id="testimonials"
     >
-      {/* Parallax Background Layers */}
-      <div className="parallax-bg parallax-layer-1 absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-amber-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-amber-900/20" />
-
-      {/* Legal Icons Parallax Layer */}
-      <div className="parallax-layer-2 absolute inset-0 overflow-hidden">
-        <div className="floating-element absolute top-1/4 left-1/4 text-blue-400/10 dark:text-blue-300/10">
-          <FaGavel className="text-8xl" />
-        </div>
-        <div className="floating-element-reverse absolute bottom-1/4 right-1/4 text-amber-400/10 dark:text-amber-300/10">
-          <FaBalanceScale className="text-10xl" />
-        </div>
-        <div className="drifting-element absolute top-1/2 right-1/3 text-green-400/10 dark:text-green-300/10">
-          <FaBookOpen className="text-6xl" />
-        </div>
-      </div>
 
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -137,7 +122,7 @@ export default function Testimonials() {
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -154,7 +139,7 @@ export default function Testimonials() {
 
         {/* Stats */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -208,7 +193,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
-              className="group relative bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-zinc-200/50 dark:border-zinc-700/50 hover:shadow-2xl transition-all duration-500"
+              className="group relative overflow-hidden bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-zinc-200/50 dark:border-zinc-700/50 hover:shadow-2xl transition-all duration-500"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -255,7 +240,7 @@ export default function Testimonials() {
 
         {/* Bottom CTA */}
         <motion.div
-          className="text-center mt-16"
+          className="text-center mt-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}

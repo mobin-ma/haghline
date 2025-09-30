@@ -76,24 +76,9 @@ export default function HowItWorks() {
   return (
     <div
       ref={containerRef}
-      className="parallax-container relative w-full py-20"
+      className="parallax-container relative w-full py-12"
       id="works"
     >
-      {/* Parallax Background Layers */}
-      <div className="parallax-bg parallax-layer-1 absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-blue-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-blue-900/20" />
-
-      {/* Legal Icons Parallax Layer */}
-      <div className="parallax-layer-2 absolute inset-0 overflow-hidden">
-        <div className="floating-element absolute top-1/4 left-1/4 text-blue-400/10 dark:text-blue-300/10">
-          <FaGavel className="text-8xl" />
-        </div>
-        <div className="floating-element-reverse absolute bottom-1/4 right-1/4 text-amber-400/10 dark:text-amber-300/10">
-          <FaScaleBalanced className="text-10xl" />
-        </div>
-        <div className="drifting-element absolute top-1/2 right-1/3 text-green-400/10 dark:text-green-300/10">
-          <FaBookOpen className="text-6xl" />
-        </div>
-      </div>
 
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -104,7 +89,7 @@ export default function HowItWorks() {
       <div className="relative z-10 max-w-6xl mx-auto px-4">
         {/* Header */}
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -120,11 +105,11 @@ export default function HowItWorks() {
         </motion.div>
 
         {/* Steps */}
-        <div className="space-y-16">
+        <div className="space-y-12">
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className={`flex flex-col lg:flex-row items-center gap-8 ${
+              className={`flex flex-col lg:flex-row items-center gap-8 border-b-2 border-zinc-200/50 dark:border-zinc-700/50 pb-4 ${
                 index % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
               initial={{ opacity: 0, y: 50 }}
@@ -135,7 +120,7 @@ export default function HowItWorks() {
               {/* Step Number & Icon */}
               <div className="flex-shrink-0">
                 <motion.div
-                  className={`relative w-32 h-32 ${step.bgColor} rounded-3xl flex items-center justify-center shadow-xl border border-zinc-200/50 dark:border-zinc-700/50`}
+                  className={`relative w-28 h-28 ${step.bgColor} rounded-3xl flex items-center justify-center shadow-xl border border-zinc-200/50 dark:border-zinc-700/50`}
                   whileHover={{ scale: 1.05, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -181,46 +166,9 @@ export default function HowItWorks() {
                   {step.description}
                 </motion.p>
               </div>
-
-              {/* Connecting Line (except for last step) */}
-              {index < steps.length - 1 && (
-                <motion.div
-                  className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-16 bg-gradient-to-b from-zinc-300 to-zinc-400 dark:from-zinc-600 dark:to-zinc-700"
-                  style={{ top: "100%" }}
-                  initial={{ scaleY: 0 }}
-                  whileInView={{ scaleY: 1 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 + 0.6 }}
-                  viewport={{ once: true }}
-                />
-              )}
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          className="text-center mt-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-zinc-200/50 dark:border-zinc-700/50 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
-              آماده شروع هستید؟
-            </h3>
-            <p className="text-zinc-600 dark:text-zinc-300 mb-6">
-              همین الان پرونده خود را ثبت کنید و از خدمات ما بهره‌مند شوید
-            </p>
-            <motion.button
-              className="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              شروع کنید
-            </motion.button>
-          </div>
-        </motion.div>
       </div>
     </div>
   );

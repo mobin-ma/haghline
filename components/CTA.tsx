@@ -11,7 +11,7 @@ import {
   FaClock,
   FaUsers,
   FaStar,
-  FaGavel
+  FaGavel,
 } from "react-icons/fa";
 import { FaScaleBalanced } from "react-icons/fa6";
 
@@ -60,7 +60,7 @@ export default function CTA() {
   return (
     <div
       ref={containerRef}
-      className="parallax-container relative w-full py-20 overflow-hidden"
+      className="parallax-container relative w-full py-12 overflow-hidden"
       id="CTA"
     >
       {/* Parallax Background Layers */}
@@ -162,7 +162,7 @@ export default function CTA() {
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -237,7 +237,7 @@ export default function CTA() {
 
         {/* Trust Indicators */}
         <motion.div
-          className="text-center mt-12"
+          className="text-center mt-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}

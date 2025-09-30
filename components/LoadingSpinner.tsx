@@ -74,20 +74,6 @@ export default function LoadingSpinner({
           </motion.p>
         </motion.div>
       )}
-
-      {/* Background Glow Effect */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-blue-500/10 to-purple-500/10 rounded-full blur-xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
     </div>
   );
 }

@@ -34,12 +34,15 @@ export default function Home() {
       <div>
         <LandingNav />
         <Welcome />
-        <Hero />
-        <Features />
-        <HowItWorks />
-        <LawyerShowcase />
-        <Testimonials />
-        <CTA />
+        <main className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <HowItWorks />
+          <Hero />
+          <Features />
+          <LawyerShowcase />
+          <div className="col-span-1 md:col-span-2">
+            <Testimonials />
+          </div>
+        </main>
         <Footer />
       </div>
     </PublicRoute>

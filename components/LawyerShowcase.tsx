@@ -12,13 +12,11 @@ import {
   FaAward,
   FaGraduationCap,
   FaBriefcase,
-  FaGavel,
-  FaBalanceScale,
-  FaBookOpen,
 } from "react-icons/fa";
 
 export default function LawyerShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   // Parallax scroll effect
   useEffect(() => {
@@ -109,28 +107,24 @@ export default function LawyerShowcase() {
     },
   ];
 
+  const scrollByCards = (direction: number) => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+    const firstCard = slider.querySelector("[data-card]") as HTMLElement | null;
+    const cardWidth = firstCard?.clientWidth ?? 320;
+    const gap = 24; // matches gap-6
+    slider.scrollBy({
+      left: direction * (cardWidth + gap),
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div
       ref={containerRef}
-      className="parallax-container relative w-full py-20"
+      className="parallax-container relative w-full py-12"
       id="showcase"
     >
-      {/* Parallax Background Layers */}
-      <div className="parallax-bg parallax-layer-1 absolute inset-0 bg-gradient-to-br from-zinc-50 via-white to-blue-50 dark:from-zinc-900 dark:via-zinc-800 dark:to-blue-900/20" />
-
-      {/* Legal Icons Parallax Layer */}
-      <div className="parallax-layer-2 absolute inset-0 overflow-hidden">
-        <div className="floating-element absolute top-1/4 left-1/4 text-blue-400/10 dark:text-blue-300/10">
-          <FaGavel className="text-8xl" />
-        </div>
-        <div className="floating-element-reverse absolute bottom-1/4 right-1/4 text-amber-400/10 dark:text-amber-300/10">
-          <FaBalanceScale className="text-10xl" />
-        </div>
-        <div className="drifting-element absolute top-1/2 right-1/3 text-green-400/10 dark:text-green-300/10">
-          <FaBookOpen className="text-6xl" />
-        </div>
-      </div>
-
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/20 dark:bg-blue-400/10 rounded-full blur-3xl" />
@@ -140,7 +134,7 @@ export default function LawyerShowcase() {
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -154,100 +148,119 @@ export default function LawyerShowcase() {
             داشته باشید
           </p>
         </motion.div>
-        {/* Lawyers Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {lawyers.map((lawyer, index) => (
-            <motion.div
-              key={lawyer.id}
-              className="group relative bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-zinc-200/50 dark:border-zinc-700/50 hover:shadow-2xl transition-all duration-500 overflow-hidden"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10, scale: 1.02 }}
+        {/* Lawyers Slider */}
+        <div className="relative">
+          {/* Controls */}
+          <div className="pointer-events-none absolute -top-12 left-0 right-0 flex items-center justify-end gap-2">
+            <button
+              aria-label="قبلی"
+              onClick={() => scrollByCards(-1)}
+              className="pointer-events-auto px-3 py-2 rounded-xl border border-zinc-200/60 dark:border-zinc-700/60 bg-white/70 dark:bg-zinc-800/70 backdrop-blur-md shadow-md hover:shadow-lg hover:bg-white dark:hover:bg-zinc-800 transition"
             >
-              {/* Background Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              ‹
+            </button>
+            <button
+              aria-label="بعدی"
+              onClick={() => scrollByCards(1)}
+              className="pointer-events-auto px-3 py-2 rounded-xl border border-zinc-200/60 dark:border-zinc-700/60 bg-white/70 dark:bg-zinc-800/70 backdrop-blur-md shadow-md hover:shadow-lg hover:bg-white dark:hover:bg-zinc-800 transition"
+            >
+              ›
+            </button>
+          </div>
 
-              {/* Image */}
-              <div className="relative mb-6">
-                <motion.div
-                  className="w-24 h-24 mx-auto rounded-2xl overflow-hidden shadow-lg"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Image
-                    src={lawyer.image}
-                    alt={lawyer.name}
-                    width={200}
-                    height={200}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
+          <div
+            ref={sliderRef}
+            className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {lawyers.map((lawyer, index) => (
+              <motion.div
+                key={lawyer.id}
+                data-card
+                className="snap-start shrink-0 w-80"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="group relative bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-zinc-200/50 dark:border-zinc-700/50 hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                  {/* Background Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                {/* Rating Badge */}
-                <div className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                  <div className="flex items-center gap-1">
-                    <FaStar className="text-xs" />
-                    <span>{lawyer.rating}</span>
+                  {/* Image */}
+                  <div className="relative mb-6">
+                    <motion.div
+                      className="w-24 h-24 mx-auto rounded-2xl overflow-hidden shadow-lg"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Image
+                        src={lawyer.image}
+                        alt={lawyer.name}
+                        width={200}
+                        height={200}
+                        className="w-full h-full object-cover"
+                      />
+                    </motion.div>
+
+                    {/* Rating Badge */}
+                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                      <div className="flex items-center gap-1">
+                        <FaStar className="text-xs" />
+                        <span>{lawyer.rating}</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              {/* Content */}
-              <div className="relative z-10 text-center">
-                <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
-                  {lawyer.name}
-                </h3>
+                  {/* Content */}
+                  <div className="relative z-10 text-center">
+                    <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
+                      {lawyer.name}
+                    </h3>
 
-                <div className="flex items-center justify-center gap-2 mb-3">
-                  <FaGraduationCap className="text-amber-500 text-sm" />
-                  <span className="text-sm text-amber-600 dark:text-amber-400 font-medium">
-                    {lawyer.specialty}
-                  </span>
-                </div>
+                    <div className="flex items-center justify-center gap-2 mb-3">
+                      <FaGraduationCap className="text-amber-500 text-sm" />
+                      <span className="text-sm text-amber-600 dark:text-amber-400 font-medium">
+                        {lawyer.specialty}
+                      </span>
+                    </div>
 
-                {/* Stats */}
-                <div className="flex justify-center gap-4 mb-4">
-                  <div className="flex items-center gap-1 text-zinc-600 dark:text-zinc-400">
-                    <FaBriefcase className="text-xs" />
-                    <span className="text-xs">{lawyer.experience}</span>
+                    {/* Stats */}
+                    <div className="flex justify-center gap-4 mb-4">
+                      <div className="flex items-center gap-1 text-zinc-600 dark:text-zinc-400">
+                        <FaBriefcase className="text-xs" />
+                        <span className="text-xs">{lawyer.experience}</span>
+                      </div>
+                      <div className="flex items-center gap-1 text-zinc-600 dark:text-zinc-400">
+                        <FaAward className="text-xs" />
+                        <span className="text-xs">{lawyer.cases} پرونده</span>
+                      </div>
+                    </div>
+
+                    <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4 line-clamp-3">
+                      {lawyer.description}
+                    </p>
+
+                    {/* CTA Button */}
+                    <motion.button
+                      className="w-full px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      انتخاب وکیل
+                    </motion.button>
                   </div>
-                  <div className="flex items-center gap-1 text-zinc-600 dark:text-zinc-400">
-                    <FaAward className="text-xs" />
-                    <span className="text-xs">{lawyer.cases} پرونده</span>
-                  </div>
+
+                  {/* Hover Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 </div>
-
-                <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4 line-clamp-3">
-                  {lawyer.description}
-                </p>
-
-                {/* CTA Button */}
-                <motion.button
-                  className="w-full px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  انتخاب وکیل
-                </motion.button>
-              </div>
-
-              {/* Hover Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-            </motion.div>
-          ))}
-        </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
         {/* Bottom CTA */}
         <motion.div
-          className="text-center mt-16"
+          className="text-center mt-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}

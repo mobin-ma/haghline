@@ -1,35 +1,6 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-@font-face {
-  font-family: "Vazir";
-  src: url("../public//fonts/Vazir-Bold.woff2") format("woff2");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Vazir";
-  src: url("../public//fonts/Vazir-Medium.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Vazir";
-  src: url("../public//fonts/Vazir-Light.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Vazir";
-  src: url("../public//fonts/Vazir-Thin.woff2") format("woff2");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -67,106 +38,9 @@ body {
   z-index: 2;
 }
 
-/* Parallax Layers */
-.parallax-layer-1 {
-  transform: translateZ(0);
-  will-change: transform;
-}
-
-.parallax-layer-2 {
-  transform: translateZ(-1px) scale(2);
-  will-change: transform;
-}
-
-.parallax-layer-3 {
-  transform: translateZ(-2px) scale(3);
-  will-change: transform;
-}
-
-/* Floating Elements Animation */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(5deg);
-  }
-}
-
-@keyframes floatReverse {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(20px) rotate(-5deg);
-  }
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.1);
-  }
-}
-
-@keyframes drift {
-  0% {
-    transform: translateX(0px) translateY(0px);
-  }
-  25% {
-    transform: translateX(10px) translateY(-10px);
-  }
-  50% {
-    transform: translateX(-5px) translateY(-20px);
-  }
-  75% {
-    transform: translateX(-10px) translateY(-10px);
-  }
-  100% {
-    transform: translateX(0px) translateY(0px);
-  }
-}
-
-.floating-element {
-  animation: float 6s ease-in-out infinite;
-}
-
-.floating-element-reverse {
-  animation: floatReverse 8s ease-in-out infinite;
-}
-
-.pulsing-element {
-  animation: pulse 3s ease-in-out infinite;
-}
-
-.drifting-element {
-  animation: drift 10s ease-in-out infinite;
-}
-
 /* Background Images */
 .welcome-bg {
   background-image: url("../public/images/welcome-bg.jpg");
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.features-bg {
-  background-image: url("../public/images/features-img.jpg");
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.lawyer-bg {
-  background-image: url("../public/images/LawyerShowcase.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -211,10 +85,7 @@ html {
 }
 
 /* Performance Optimizations */
-.parallax-bg,
-.floating-element,
-.pulsing-element,
-.drifting-element {
+.parallax-bg {
   will-change: transform;
   backface-visibility: hidden;
   perspective: 1000px;
@@ -222,10 +93,7 @@ html {
 
 /* Reduced motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .floating-element,
-  .floating-element-reverse,
-  .pulsing-element,
-  .drifting-element {
+  .parallax-bg {
     animation: none;
   }
 

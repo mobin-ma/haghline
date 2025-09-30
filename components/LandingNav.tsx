@@ -72,7 +72,7 @@ export default function LandingNav() {
   return (
     <>
       {/*Bottom Navigation for Mobile*/}
-      <div className={`block md:hidden fixed ${showNav ? "left-64" : "left-6"} top-1/2 transform -translate-1/2 z-50`}>
+      <div className={`block md:hidden fixed ${showNav ? "left-3/5" : "left-6"} top-1/2 transform -translate-1/2 z-50 transition-all duration-500`}>
         {
           showNav ?
           (
@@ -89,14 +89,14 @@ export default function LandingNav() {
       </div>
       {/* Bottom Glass Navigation */}
       <motion.nav
-        className={`fixed ${showNav ? "left-4" :"-left-96"} top-1/2 transform -translate-y-1/2 md:-translate-y-full md:top-full md:left-1/2 md:transform md:-translate-x-1/2 z-50`}
-        initial={{ y: 100, opacity: 0 }}
+        className={`fixed ${showNav ? "left-4" :"-left-96"} top-1/2 transform -translate-y-1/2 md:-translate-y-full lg:-translate-y-0 transition-all duration-500 md:top-full lg:top-2 md:left-1/2 md:transform md:-translate-x-1/2 z-50 w-1/2 md:w-full lg:w-4/5`}
+        initial={{ y: -150, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
       >
         <div className="bg-white/30 dark:bg-zinc-900/30 backdrop-blur border border-white/40 dark:border-zinc-700/40 rounded-2xl shadow-2xl shadow-black/10 dark:shadow-black/30">
           <div className="px-6 py-4">
-            <div className="flex flex-col md:flex-row items-center justify-center space-x-1 space-x-reverse">
+            <div className="flex flex-col md:flex-row items-center justify-center lg:justify-around space-x-1 space-x-reverse">
               {/* Navigation Links */}
               {navItems.map((item, index) => {
                 const IconComponent = item.icon;
