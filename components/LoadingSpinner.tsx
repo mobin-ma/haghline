@@ -41,7 +41,7 @@ export default function LoadingSpinner({
       <div className="relative">
         {/* Outer Rotating Ring */}
         <motion.div
-          className={`${sizeClasses[size]} border-4 border-transparent border-t-amber-500 rounded-full`}
+          className={`${sizeClasses[size]} border-4 border-transparent border-t-sky-500 rounded-full`}
           animate={{ rotate: 360 }}
           transition={{
             repeat: Infinity,
@@ -60,7 +60,7 @@ export default function LoadingSpinner({
           transition={{ duration: 0.5 }}
         >
           <motion.p
-            className={`${textSizeClasses[size]} font-bold text-amber-500 mb-2`}
+            className={`${textSizeClasses[size]} font-bold text-sky-500 mb-2`}
             animate={{
               opacity: [0.7, 1, 0.7],
             }}
