@@ -54,8 +54,8 @@ export default function Hero() {
     >
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute bottom-10 right-0 w-80 h-80 bg-blue-200/20 dark:bg-blue-400/10 rounded-full blur-3xl" />
-        <div className="absolute top-20 left-10 w-64 h-64 bg-amber-200/20 dark:bg-amber-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-50 left-80 w-64 h-64 bg-blue-200/20 dark:bg-blue-400/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-30 right-50 w-80 h-80 bg-sky-200/20 dark:bg-sky-400/10 rounded-full blur-3xl" />
       </div>
 
       <motion.div
@@ -77,14 +77,14 @@ export default function Hero() {
           >
             <div className="space-y-6">
               <motion.h1
-                className="text-4xl md:text-6xl text-center font-bold bg-gradient-to-r from-zinc-900 via-blue-800 to-amber-600 dark:from-white dark:via-blue-200 dark:to-amber-300 bg-clip-text text-transparent leading-tight"
+                className="text-4xl md:text-6xl text-center font-bold bg-gradient-to-r from-zinc-900 via-blue-800 to-sky-500 dark:from-white dark:via-blue-200 dark:to-sky-400 bg-clip-text text-transparent leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
                 viewport={{ once: true }}
               >
                 دسترسی سریع به
-                <span className="block text-amber-600 dark:text-amber-400">
+                <span className="block text-sky-600 dark:text-sky-400">
                   وکیل مورد نیاز
                 </span>
               </motion.h1>
@@ -116,7 +116,7 @@ export default function Hero() {
                   whileHover={{ scale: 1.05, y: -2 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <span className="text-amber-600 dark:text-amber-400">
+                  <span className="text-sky-600 dark:text-sky-400">
                     {feature.icon}
                   </span>
                   <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
@@ -137,16 +137,16 @@ export default function Hero() {
               <Link
                 href="/authpage"
                 onClick={() => dispatch(setMode("login"))}
-                className="group relative px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-sky-600 text-white font-bold text-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
               >
                 <span className="relative z-10">شروع کنید</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-sky-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
 
               <Link
                 href="/authpage"
                 onClick={() => dispatch(setMode("signup"))}
-                className="px-8 py-4 border-2 border-amber-500 text-amber-600 dark:text-amber-400 font-bold text-lg rounded-2xl hover:bg-amber-500 hover:text-white transition-all duration-300 hover:scale-105"
+                className="px-8 py-4 border-2 border-blue-500 text-blue-600 dark:text-sky-400 font-bold text-lg rounded-2xl hover:bg-blue-500 hover:text-white transition-all duration-300 hover:scale-105"
               >
                 ثبت نام
               </Link>

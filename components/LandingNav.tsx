@@ -14,6 +14,7 @@ import {
   FaComments,
   FaChevronRight,
   FaChevronLeft,
+  FaHandshake,
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "motion/react";
 import ThemeToggle from "./ThemeToggle";
@@ -42,19 +43,25 @@ export default function LandingNav() {
   }, []);
 
   const navItems = [
-    { href: "#welcome", label: "خانه", icon: FaHome, color: "text-blue-500" },
+   {
+      href: "#works",
+      label: "نحوه کار",
+      icon: FaCogs,
+      color: "text-green-500",
+    },
+    {
+      href: "#hero",
+      label: "دسترسی",
+      icon: FaHandshake,
+      color: "text-blue-500",
+    },
     {
       href: "#features",
       label: "ویژگی‌ها",
       icon: FaStar,
       color: "text-purple-500",
     },
-    {
-      href: "#works",
-      label: "نحوه کار",
-      icon: FaCogs,
-      color: "text-green-500",
-    },
+  
     {
       href: "#showcase",
       label: "وکلا",
@@ -72,24 +79,28 @@ export default function LandingNav() {
   return (
     <>
       {/*Bottom Navigation for Mobile*/}
-      <div className={`block md:hidden fixed ${showNav ? "left-3/5" : "left-6"} top-1/2 transform -translate-1/2 z-50 transition-all duration-500`}>
-        {
-          showNav ?
-          (
-            <FaChevronLeft
+      <div
+        className={`block md:hidden fixed ${
+          showNav ? "left-3/5" : "left-6"
+        } top-1/2 transform -translate-1/2 z-50 transition-all duration-500`}
+      >
+        {showNav ? (
+          <FaChevronLeft
             onClick={() => setShowNav(false)}
-             className="bg-gray-500/30 dark:bg-zinc-900/30 backdrop-blur text-3xl w-10 h-10 text-white rounded-lg p-2 border border-white/40 dark:border-zinc-800/40" />
-          ) :
-          (
-            <FaChevronRight
+            className="bg-gray-500/30 dark:bg-zinc-900/30 backdrop-blur text-3xl w-10 h-10 text-white rounded-lg p-2 border border-white/40 dark:border-zinc-800/40"
+          />
+        ) : (
+          <FaChevronRight
             onClick={() => setShowNav(true)}
-             className="bg-gray-500/30 dark:bg-zinc-900/30 backdrop-blur text-3xl w-10 h-10 text-white rounded-lg p-2 border border-white/40 dark:border-zinc-800/40" />
-          )
-        }
+            className="bg-gray-500/30 dark:bg-zinc-900/30 backdrop-blur text-3xl w-10 h-10 text-white rounded-lg p-2 border border-white/40 dark:border-zinc-800/40"
+          />
+        )}
       </div>
       {/* Bottom Glass Navigation */}
       <motion.nav
-        className={`fixed ${showNav ? "left-4" :"-left-96"} top-1/2 transform -translate-y-1/2 md:-translate-y-full lg:-translate-y-0 transition-all duration-500 md:top-full lg:top-2 md:left-1/2 md:transform md:-translate-x-1/2 z-50 w-1/2 md:w-full lg:w-4/5`}
+        className={`fixed ${
+          showNav ? "left-4" : "-left-96"
+        } top-1/2 transform -translate-y-1/2 md:-translate-y-full lg:-translate-y-0 transition-all duration-500 md:top-full lg:top-2 md:left-1/2 md:transform md:-translate-x-1/2 z-50 w-1/2 md:w-full lg:w-4/5`}
         initial={{ y: -150, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -156,16 +167,16 @@ export default function LandingNav() {
                 <Link
                   href="/authpage"
                   onClick={() => dispatch(setMode("login"))}
-                  className="group flex flex-col items-center space-y-1 px-4 py-3 rounded-xl hover:bg-blue-500/20 transition-all duration-300 min-w-[80px]"
+                  className="group flex flex-col items-center space-y-1 px-4 py-3 mx-1 rounded-xl hover:bg-sky-600 transition-all duration-300 min-w-[80px]"
                 >
                   <motion.div
-                    className="text-2xl text-blue-500 group-hover:scale-110 transition-transform duration-300"
+                    className="text-2xl text-sky-600 group-hover:text-white group-hover:scale-110 transition-transform duration-300"
                     whileHover={{ scale: 1.1, rotate: -5 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <FaUser />
                   </motion.div>
-                  <span className="text-xs font-medium text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                  <span className="text-xs font-medium text-sky-600 group-hover:text-white transition-colors duration-300">
                     ورود
                   </span>
                 </Link>
@@ -174,16 +185,16 @@ export default function LandingNav() {
                 <Link
                   href="/authpage"
                   onClick={() => dispatch(setMode("signup"))}
-                  className="group flex flex-col items-center space-y-1 px-4 py-3 rounded-xl bg-gradient-to-r from-amber-500/20 to-orange-500/20 hover:from-amber-500/30 hover:to-orange-500/30 transition-all duration-300 min-w-[80px]"
+                  className="group flex flex-col items-center space-y-1 px-4 py-3 mx-1 rounded-xl bg-sky-600 hover:bg-transparent transition-all duration-300 min-w-[80px]"
                 >
                   <motion.div
-                    className="text-2xl text-amber-500 group-hover:scale-110 transition-transform duration-300"
+                    className="text-2xl text-white group-hover:text-sky-600 group-hover:scale-110 transition-transform duration-300"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <FaUserPlus />
                   </motion.div>
-                  <span className="text-xs font-medium text-amber-700 dark:text-amber-300 group-hover:text-amber-800 dark:group-hover:text-amber-200 transition-colors duration-300">
+                  <span className="text-xs font-medium text-white group-hover:text-sky-600 transition-colors duration-300">
                     ثبت نام
                   </span>
                 </Link>
@@ -198,7 +209,7 @@ export default function LandingNav() {
         {showBackToTop && (
           <motion.button
             onClick={scrollToTop}
-            className="fixed bottom-24 right-6 z-50 w-14 h-14 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full shadow-2xl hover:shadow-amber-500/25 transition-all duration-300 flex items-center justify-center backdrop-blur-sm"
+            className="fixed bottom-24 right-6 z-50 w-14 h-14 bg-gradient-to-r from-blue-500 to-sky-500 text-white rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center backdrop-blur-sm"
             initial={{ opacity: 0, scale: 0, rotate: -180 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             exit={{ opacity: 0, scale: 0, rotate: 180 }}

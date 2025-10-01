@@ -112,11 +112,10 @@ export default function Testimonials() {
       className="parallax-container relative w-full py-12"
       id="testimonials"
     >
-
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-10 w-64 h-64 bg-blue-200/20 dark:bg-blue-400/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-80 h-80 bg-amber-200/20 dark:bg-amber-400/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-sky-200/20 dark:bg-sky-400/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
@@ -128,7 +127,7 @@ export default function Testimonials() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-zinc-900 via-blue-800 to-amber-600 dark:from-white dark:via-blue-200 dark:to-amber-300 bg-clip-text text-transparent mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-zinc-900 via-blue-800 to-sky-500 dark:from-white dark:via-blue-200 dark:to-sky-400 bg-clip-text text-transparent mb-6">
             نظرات کاربران
           </h2>
           <p className="text-xl text-zinc-600 dark:text-zinc-300 max-w-3xl mx-auto leading-relaxed">
@@ -201,14 +200,14 @@ export default function Testimonials() {
               whileHover={{ y: -10, scale: 1.02 }}
             >
               {/* Quote Icon */}
-              <div className="absolute top-6 right-6 text-amber-500/20">
+              <div className="absolute top-6 right-6 text-sky-500/20">
                 <FaQuoteLeft className="text-3xl" />
               </div>
 
               {/* Rating */}
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <FaStar key={i} className="text-amber-500 text-sm" />
+                  <FaStar key={i} className="text-sky-500 text-sm" />
                 ))}
               </div>
 
@@ -219,7 +218,7 @@ export default function Testimonials() {
 
               {/* Author */}
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center text-white text-xl shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-sky-600 rounded-full flex items-center justify-center text-white text-xl shadow-lg">
                   {testimonial.avatar}
                 </div>
                 <div>
@@ -236,32 +235,6 @@ export default function Testimonials() {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-3xl" />
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-zinc-200/50 dark:border-zinc-700/50 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
-              به جمع کاربران راضی ما بپیوندید
-            </h3>
-            <p className="text-zinc-600 dark:text-zinc-300 mb-6">
-              تجربه‌ای مشابه کاربران ما داشته باشید و از خدمات حرفه‌ای ما
-              بهره‌مند شوید
-            </p>
-            <motion.button
-              className="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              شروع کنید
-            </motion.button>
-          </div>
         </motion.div>
       </div>
     </div>

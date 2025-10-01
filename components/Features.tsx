@@ -73,11 +73,10 @@ export default function Features() {
       className="parallax-container relative py-12"
       id="features"
     >
-
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute bottom-50 left-30 w-72 h-72 bg-blue-200/20 dark:bg-blue-400/10 rounded-full blur-3xl" />
-        <div className="absolute top-20 right-10 w-96 h-96 bg-amber-200/20 dark:bg-amber-400/10 rounded-full blur-3xl" />
+        <div className="absolute top-50 right-30 w-96 h-96 bg-blue-200/20 dark:bg-blue-400/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-30 left-30 w-72 h-72 bg-sky-200/20 dark:bg-sky-400/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
@@ -89,7 +88,7 @@ export default function Features() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-zinc-900 via-blue-800 to-amber-600 dark:from-white dark:via-blue-200 dark:to-amber-300 bg-clip-text text-transparent mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-zinc-900 via-blue-800 to-sky-500 dark:from-white dark:via-blue-200 dark:to-sky-400 bg-clip-text text-transparent mb-6">
             ویژگی‌های منحصر به فرد
           </h2>
           <p className="text-xl text-zinc-600 dark:text-zinc-300 max-w-3xl mx-auto leading-relaxed">

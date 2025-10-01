@@ -79,11 +79,10 @@ export default function HowItWorks() {
       className="parallax-container relative w-full py-12"
       id="works"
     >
-
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-10 w-64 h-64 bg-blue-200/20 dark:bg-blue-400/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-80 h-80 bg-amber-200/20 dark:bg-amber-400/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-10 w-80 h-80 bg-sky-200/20 dark:bg-sky-400/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4">
@@ -95,7 +94,7 @@ export default function HowItWorks() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-zinc-900 via-blue-800 to-amber-600 dark:from-white dark:via-blue-200 dark:to-amber-300 bg-clip-text text-transparent mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-zinc-900 via-blue-800 to-sky-500 dark:from-white dark:via-blue-200 dark:to-sky-400 bg-clip-text text-transparent mb-6">
             چگونه کار می‌کند؟
           </h2>
           <p className="text-xl text-zinc-600 dark:text-zinc-300 max-w-3xl mx-auto leading-relaxed">
@@ -139,7 +138,7 @@ export default function HowItWorks() {
                   </motion.div>
 
                   {/* Step Number */}
-                  <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-zinc-900 to-zinc-700 dark:from-amber-500 dark:to-amber-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                  <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-zinc-900 to-zinc-700 dark:from-blue-500 dark:to-sky-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
                     {step.number}
                   </div>
                 </motion.div>

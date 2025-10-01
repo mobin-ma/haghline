@@ -128,7 +128,7 @@ export default function LawyerShowcase() {
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/20 dark:bg-blue-400/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-amber-200/20 dark:bg-amber-400/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 right-20 w-96 h-96 bg-sky-200/20 dark:bg-sky-400/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
@@ -140,7 +140,7 @@ export default function LawyerShowcase() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-zinc-900 via-blue-800 to-amber-600 dark:from-white dark:via-blue-200 dark:to-amber-300 bg-clip-text text-transparent mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-zinc-900 via-blue-800 to-sky-600 dark:from-white dark:via-blue-200 dark:to-sky-300 bg-clip-text text-transparent mb-6">
             ویترین وکلا
           </h2>
           <p className="text-xl text-zinc-600 dark:text-zinc-300 max-w-3xl mx-auto leading-relaxed">
@@ -170,7 +170,7 @@ export default function LawyerShowcase() {
 
           <div
             ref={sliderRef}
-            className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-6 overflow-hidden snap-x snap-mandatory pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {lawyers.map((lawyer, index) => (
               <motion.div
@@ -182,9 +182,9 @@ export default function LawyerShowcase() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="group relative bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-zinc-200/50 dark:border-zinc-700/50 hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                <div className="group relative bg-white/50 dark:bg-zinc-800/50 backdrop-blur-sm p-6 rounded-3xl shadow-xl border border-zinc-200/50 dark:border-zinc-700/50 hover:shadow-2xl transition-all duration-500 overflow-hidden">
                   {/* Background Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-sky-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Image */}
                   <div className="relative mb-6">
@@ -203,7 +203,7 @@ export default function LawyerShowcase() {
                     </motion.div>
 
                     {/* Rating Badge */}
-                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-blue-600 to-sky-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
                       <div className="flex items-center gap-1">
                         <FaStar className="text-xs" />
                         <span>{lawyer.rating}</span>
@@ -218,8 +218,8 @@ export default function LawyerShowcase() {
                     </h3>
 
                     <div className="flex items-center justify-center gap-2 mb-3">
-                      <FaGraduationCap className="text-amber-500 text-sm" />
-                      <span className="text-sm text-amber-600 dark:text-amber-400 font-medium">
+                      <FaGraduationCap className="text-sky-500 text-sm" />
+                      <span className="text-sm text-sky-600 dark:text-sky-400 font-medium">
                         {lawyer.specialty}
                       </span>
                     </div>
@@ -242,7 +242,7 @@ export default function LawyerShowcase() {
 
                     {/* CTA Button */}
                     <motion.button
-                      className="w-full px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="w-full px-4 py-2 bg-gradient-to-r from-blue-700 to-sky-600 text-white font-bold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -257,31 +257,6 @@ export default function LawyerShowcase() {
             ))}
           </div>
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <div className="bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-zinc-200/50 dark:border-zinc-700/50 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-4">
-              وکیل مناسب خود را پیدا کنید
-            </h3>
-            <p className="text-zinc-600 dark:text-zinc-300 mb-6">
-              از بین وکلای متخصص ما، بهترین گزینه را برای پرونده خود انتخاب کنید
-            </p>
-            <motion.button
-              className="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              مشاهده همه وکلا
-            </motion.button>
-          </div>
-        </motion.div>
       </div>
     </div>
   );

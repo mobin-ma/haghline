@@ -131,7 +131,7 @@ const Welcome = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            به <span className="text-amber-400">حق لاین</span> خوش آمدید
+            به <span className="text-sky-400">حق لاین</span> خوش آمدید
           </motion.h1>
 
           <motion.p
@@ -160,7 +160,7 @@ const Welcome = () => {
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="text-amber-400 mb-2 flex justify-center">
+              <div className="text-sky-400 mb-2 flex justify-center">
                 {stat.icon}
               </div>
               <div className="text-3xl font-bold text-white mb-1">
@@ -173,11 +173,11 @@ const Welcome = () => {
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="flex flex-col items-center text-white/70">
+          <div className="flex flex-col items-center text-sky-600/70">
             <span className="text-sm mb-2">اسکرول کنید</span>
             <FaArrowDown className="text-xl" />
           </div>

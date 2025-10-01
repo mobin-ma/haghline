@@ -86,11 +86,11 @@ export default function Footer() {
   return (
     <footer
       ref={containerRef}
-      className="parallax-container relative bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 dark:from-amber-900 dark:via-amber-800 dark:to-amber-900 text-white overflow-hidden"
+      className="parallax-container relative bg-gradient-to-br from-blue-900 via-sky-800 to-sky-900 text-white overflow-hidden"
     >
       {/* Parallax Background Layers */}
       <div className="parallax-bg parallax-layer-1 absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/20 to-amber-500/20" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/20 to-sky-500/20" />
         <div className="absolute top-20 right-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
       </div>
 
@@ -118,7 +118,7 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-white to-amber-300 bg-clip-text text-transparent mb-4">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-white to-sky-300 bg-clip-text text-transparent mb-4">
               حق‌لاین
             </h2>
             <p className="text-zinc-300 dark:text-zinc-200 leading-relaxed mb-6">
@@ -129,15 +129,15 @@ export default function Footer() {
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-zinc-300">
-                <FaPhone className="text-amber-400" />
+                <FaPhone className="text-sky-600" />
                 <span>021-12345678</span>
               </div>
               <div className="flex items-center gap-3 text-zinc-300">
-                <FaEnvelope className="text-amber-400" />
+                <FaEnvelope className="text-sky-600" />
                 <span>info@haghline.com</span>
               </div>
               <div className="flex items-center gap-3 text-zinc-300">
-                <FaMapMarkerAlt className="text-amber-400" />
+                <FaMapMarkerAlt className="text-sky-600" />
                 <span>تهران، ایران</span>
               </div>
             </div>
@@ -196,24 +196,6 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl font-bold text-white mb-6">حساب کاربری</h3>
-            <div className="space-y-4 mb-8">
-              <Link
-                href="/authpage"
-                onClick={() => dispatch(setMode("login"))}
-                className="block w-full px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center hover:scale-105"
-              >
-                ورود
-              </Link>
-              <Link
-                href="/authpage"
-                onClick={() => dispatch(setMode("signup"))}
-                className="block w-full px-4 py-2 border-2 border-amber-500 text-amber-400 font-bold rounded-xl hover:bg-amber-500 hover:text-white transition-all duration-300 text-center hover:scale-105"
-              >
-                ثبت‌نام
-              </Link>
-            </div>
-
             <h4 className="text-lg font-bold text-white mb-4">
               ما را دنبال کنید
             </h4>
@@ -223,7 +205,7 @@ export default function Footer() {
                   key={index}
                   href={social.href}
                   aria-label={social.label}
-                  className={`w-12 h-12 bg-zinc-800 dark:bg-zinc-700 rounded-xl flex items-center justify-center text-white text-xl ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-lg`}
+                  className={`w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl ${social.color} transition-all duration-300 hover:scale-110`}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -257,7 +239,7 @@ export default function Footer() {
                 className="flex-1 px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-zinc-300 focus:outline-none focus:ring-2 focus:ring-amber-500"
               />
               <motion.button
-                className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className="px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
