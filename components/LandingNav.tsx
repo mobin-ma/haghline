@@ -7,7 +7,6 @@ import {
   FaArrowUp,
   FaUser,
   FaUserPlus,
-  FaHome,
   FaStar,
   FaCogs,
   FaUsers,

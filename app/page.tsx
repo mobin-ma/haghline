@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import LandingNav from "@/components/LandingNav";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
-import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import Loading from "./loading";
 import PublicRoute from "@/components/PublicRoute";

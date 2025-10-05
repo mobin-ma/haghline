@@ -1,7 +1,4 @@
 "use client";
-import { useDispatch } from "react-redux";
-import { setMode } from "@/store/authSlice";
-import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 import {
   FaFacebook,
@@ -18,7 +15,6 @@ import {
 import * as motion from "motion/react-client";
 
 export default function Footer() {
-  const dispatch = useDispatch();
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Parallax scroll effect

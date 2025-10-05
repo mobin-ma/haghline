@@ -6,15 +6,7 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { setMode } from "@/store/authSlice";
 import * as motion from "motion/react-client";
-import {
-  FaGavel,
-  FaShieldAlt,
-  FaClock,
-  FaUsers,
-  FaBalanceScale,
-  FaBookOpen,
-  FaStar,
-} from "react-icons/fa";
+import { FaGavel, FaShieldAlt, FaClock, FaUsers } from "react-icons/fa";
 
 export default function Hero() {
   const dispatch = useDispatch();

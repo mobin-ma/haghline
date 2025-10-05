@@ -13,7 +13,6 @@ import {
   CiSettings,
   CiFileOn,
   CiUser,
-  CiBellOn,
   CiSearch,
 } from "react-icons/ci";
 import {

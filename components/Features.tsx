@@ -4,7 +4,6 @@ import { FaFile } from "react-icons/fa6";
 import { MdSavings } from "react-icons/md";
 import * as motion from "motion/react-client";
 import { ReactNode, useEffect, useRef } from "react";
-import { FaGavel, FaBalanceScale, FaBookOpen, FaStar } from "react-icons/fa";
 
 type Card = {
   title: string;

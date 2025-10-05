@@ -7,9 +7,6 @@ import {
   FaUsers,
   FaUserTie,
   FaHandshake,
-  FaGavel,
-  FaBalanceScale,
-  FaBookOpen,
 } from "react-icons/fa";
 
 type Testimonial = {

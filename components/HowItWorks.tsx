@@ -5,11 +5,7 @@ import {
   FaUserCheck,
   FaComments,
   FaChartLine,
-  FaGavel,
-  FaBookOpen,
-  FaStar,
 } from "react-icons/fa";
-import { FaScaleBalanced } from "react-icons/fa6";
 
 export default function HowItWorks() {
   const containerRef = useRef<HTMLDivElement>(null);
