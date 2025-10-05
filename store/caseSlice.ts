@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CaseData, getCases, createCase, Category, getCategories } from "./caseThunks";
+import { CaseData, getCases, createCase, Category, getCategories, getCaseById } from "./caseThunks";
 
 interface CaseState {
     cases: CaseData[];
+    caseId: CaseData;
     categories: Category[];
     loading: boolean;
     success: boolean;
@@ -11,6 +12,7 @@ interface CaseState {
 
 const initialState: CaseState = {
     cases: [],
+    caseId: {id:1 ,title: "", description: "", category: "", attachments: []},
     categories: [],
     loading: false,
     success: false,
@@ -30,6 +32,7 @@ const caseSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
+            //Cases
             .addCase(getCases.pending, (state) => {
                 state.loading = true;
                 state.success = false;
@@ -44,6 +47,7 @@ const caseSlice = createSlice({
                 state.loading = false;
                 state.error = action.payload as string || "خطا در دریافت پرونده";
             })
+            //Create Case
             .addCase(createCase.pending, (state) => {
                 state.loading = true;
                 state.success = false;
@@ -70,6 +74,21 @@ const caseSlice = createSlice({
                 state.success = true;
             })
             .addCase(getCategories.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload as string || "خطا در دریافت دسته‌بندی‌ها";
+            })
+         // Cases By ID
+            .addCase(getCaseById.pending, (state) => {
+                state.loading = true;
+                state.success = false;
+                state.error = null;
+            })
+            .addCase(getCaseById.fulfilled, (state, action) => {
+                state.loading = false;
+                state.caseId = action.payload;
+                state.success = true;
+            })
+            .addCase(getCaseById.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload as string || "خطا در دریافت دسته‌بندی‌ها";
             })

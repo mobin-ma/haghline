@@ -4,7 +4,6 @@ import { setUser } from "@/store/typeUserSlice";
 import * as motion from "motion/react-client";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { setLocalError } from "@/store/authSlice";
 import { Transition } from "motion";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import LoadingButton from "./LoadingButton";
@@ -20,7 +19,6 @@ export default function Login({ toggleMode }: LoginProps) {
   };
 
   const dispatch = useAppDispatch();
-  const typeUser = useSelector((state: RootState) => state.type.typeUser);
   const { loading } = useSelector((state: RootState) => state.auth);
 
   const [phone, setPhone] = useState<string>("");
@@ -116,13 +114,13 @@ export default function Login({ toggleMode }: LoginProps) {
               type="number"
               placeholder="شماره تلفن"
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 dark:border-0 dark:bg-zinc-700"
             />
             <LoadingButton
               type="submit"
               loading={loading}
               loadingText="در حال ورود..."
-              className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:border-2 dark:border-amber-500 dark:hover:border-amber-500 dark:hover:bg-transparent"
+              className="w-full cursor-pointer text-white py-2 rounded-lg font-semibold transition-colors bg-gradient-to-r from-blue-500 to-sky-500 hover:from-blue-600 hover:to-sky-600"
             >
               ورود
             </LoadingButton>
@@ -141,20 +139,20 @@ export default function Login({ toggleMode }: LoginProps) {
               disabled={true}
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full disabled:text-gray-400 cursor-not-allowed px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
+              className="w-full disabled:text-gray-400 cursor-not-allowed px-4 py-2 border rounded-lg dark:border-0 dark:bg-zinc-700"
             />
             <input
               type="number"
               placeholder="کد تایید"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 dark:border-0 dark:bg-zinc-700"
             />
             <LoadingButton
               type="submit"
               loading={loading}
               loadingText="در حال تایید..."
-              className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:border-2 dark:border-amber-500 dark:hover:border-amber-500 dark:hover:bg-transparent"
+              className="w-full cursor-pointer text-white py-2 rounded-lg font-semibold transition-colors bg-gradient-to-r from-blue-500 to-sky-500 hover:from-blue-600 hover:to-sky-600"
             >
               تایید کد
             </LoadingButton>
@@ -163,7 +161,7 @@ export default function Login({ toggleMode }: LoginProps) {
                 type="button"
                 onClick={handleResend}
                 disabled={!resendAllowed}
-                className="w-full bg-zinc-700 text-white py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:hover:bg-amber-600"
+                className="w-full text-white py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors bg-gradient-to-r from-blue-500 to-sky-500 hover:from-blue-600 hover:to-sky-600"
               >
                 ارسال مجدد کد
               </button>
@@ -179,7 +177,7 @@ export default function Login({ toggleMode }: LoginProps) {
           حساب کاربری ندارد؟{" "}
           <span
             onClick={toggleMode}
-            className="text-zinc-900 dark:text-amber-400 font-bold cursor-pointer transition-colors hover:text-zinc-600 dark:hover:text-amber-600 hover:underline"
+            className="text-sky-400 font-bold cursor-pointer transition-colors hover:text-sky-600 hover:underline"
           >
             ثبت نام
           </span>

@@ -70,7 +70,7 @@ export default function Profile() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
             {getInitials(userInfo)}
           </div>
           <div className="hidden md:block text-right">
@@ -158,7 +158,7 @@ export default function Profile() {
                   {/* Edit Button */}
                   <motion.button
                     onClick={handleEditClick}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-lg font-medium text-sm transition-all duration-200 shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-600 hover:to-blue-600 text-white rounded-lg font-medium text-sm transition-all duration-200 shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

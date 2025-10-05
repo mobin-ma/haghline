@@ -35,7 +35,7 @@ export default function CaseRegistration({
   const { categories, loading } = useSelector(
     (state: RootState) => state.cases
   );
-  console.log(formData);
+  console.log(formData.files);
   
 
   const handleChange = (
@@ -169,7 +169,7 @@ export default function CaseRegistration({
           <div>
             <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
               <div className="flex items-center gap-2">
-                <FaLock className="text-amber-500" />
+                <FaLock className="text-sky-500" />
                 اطلاعات حساس
               </div>
             </label>
@@ -187,7 +187,7 @@ export default function CaseRegistration({
           <div>
             <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
               <div className="flex items-center gap-2">
-                <FaUpload className="text-amber-500" />
+                <FaUpload className="text-sky-500" />
                 فایل‌های ضمیمه
               </div>
             </label>
@@ -195,7 +195,7 @@ export default function CaseRegistration({
               type="file"
               multiple
               onChange={handleFileChange}
-              className="w-full px-4 py-3 rounded-xl border-2 border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-700 text-zinc-900 dark:text-white focus:border-amber-500 dark:focus:border-amber-400 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100"
+              className="w-full px-4 py-3 rounded-xl border-2 border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-700 text-zinc-900 dark:text-white focus:border-sky-500 dark:focus:border-sky-400 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-sky-100 file:text-sky-700 hover:file:bg-sky-200"
             />
             {formData.files.length > 0 && (
               <div className="mt-2">
@@ -212,7 +212,7 @@ export default function CaseRegistration({
               type="submit"
               loading={loading}
               loadingText="در حال ثبت پرونده..."
-              className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl hover:from-amber-600 hover:to-orange-600 transition-all shadow-lg hover:shadow-xl font-medium"
+              className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-sky-500 to-blue-500 text-white rounded-xl hover:from-sky-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl font-medium"
             >
               <FaSave className="text-lg" />
               ثبت پرونده

@@ -31,7 +31,7 @@ export default function MenuToggle() {
     <>
       {/* Mobile Menu Button */}
       <button
-        className="lg:hidden p-2 text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+        className="lg:hidden p-2 text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
         onClick={() => setMenuToggle((prev) => !prev)}
       >
         <CiMenuBurger className="text-xl" />
@@ -65,7 +65,7 @@ export default function MenuToggle() {
               <div className="p-6 border-b border-slate-200/50 dark:border-zinc-700/50">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-xl flex items-center justify-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-sky-500 to-blue-500 rounded-xl flex items-center justify-center">
                       <FaBalanceScale className="text-white text-lg" />
                     </div>
                     <div>
@@ -79,7 +79,7 @@ export default function MenuToggle() {
                   </div>
                   <button
                     onClick={() => setMenuToggle(false)}
-                    className="p-2 text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+                    className="p-2 text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
                   >
                     <IoMdClose className="text-xl" />
                   </button>
@@ -97,15 +97,15 @@ export default function MenuToggle() {
                           href={item.href}
                           className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
                             isActive
-                              ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/25"
-                              : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-zinc-700 hover:text-amber-600 dark:hover:text-amber-400"
+                              ? "bg-gradient-to-r from-sky-500 to-blue-500 text-white shadow-lg shadow-amber-500/25"
+                              : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-zinc-700 hover:text-sky-600 dark:hover:text-sky-400"
                           }`}
                         >
                           <item.icon
                             className={`text-lg ${
                               isActive
                                 ? "text-white"
-                                : "text-slate-500 dark:text-slate-400 group-hover:text-amber-600 dark:group-hover:text-amber-400"
+                                : "text-slate-500 dark:text-slate-400 group-hover:text-sky-600 dark:group-hover:text-sky-400"
                             }`}
                           />
                           <span className="font-medium">{item.label}</span>

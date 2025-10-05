@@ -133,7 +133,7 @@ export default function Signup({ toggleMode }: SignupProps) {
               type="number"
               placeholder="شماره تلفن"
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-sky-500"
             />
             {typeUser === "individual" ? (
               <>
@@ -141,13 +141,13 @@ export default function Signup({ toggleMode }: SignupProps) {
                   type="text"
                   placeholder="نام"
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
+                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 dark:border-0 dark:bg-zinc-700"
                 />
                 <input
                   type="text"
                   placeholder="نام خانوادگی"
                   onChange={(e) => setLastName(e.target.value)}
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
+                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 dark:border-0 dark:bg-zinc-700"
                 />
               </>
             ) : (
@@ -155,7 +155,7 @@ export default function Signup({ toggleMode }: SignupProps) {
                 type="text"
                 placeholder="نام شرکت"
                 onChange={(e) => setCompanyName(e.target.value)}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 dark:border-0 dark:bg-zinc-700"
               />
             )}
             <div className="flex gap-4 w-full justify-center">
@@ -165,7 +165,7 @@ export default function Signup({ toggleMode }: SignupProps) {
                   name="userType"
                   checked={typeUser === "individual"}
                   onChange={() => dispatch(setUser("individual"))}
-                  className="appearance-none w-5 h-5 rounded-full border-2 border-zinc-500 dark:border-amber-400 relative transition-all duration-300 checked:border-zinc-900 dark:checked:border-amber-600 before:content-['\2713'] before:absolute before:inset-0  before:flex before:items-center before:justify-center before:text-xs before:font-bold before:bg-zinc-900 dark:before:bg-amber-600 before:text-white before:rounded-full before:opacity-0 checked:before:opacity-100"
+                  className="appearance-none w-5 h-5 rounded-full border-2 border-sky-400 relative transition-all duration-300 checked:border-sky-600 before:content-['\2713'] before:absolute before:inset-0  before:flex before:items-center before:justify-center before:text-xs before:font-bold before:bg-sky-600 before:text-white before:rounded-full before:opacity-0 checked:before:opacity-100"
                 />
                 حقیقی
               </label>
@@ -176,7 +176,7 @@ export default function Signup({ toggleMode }: SignupProps) {
                   name="userType"
                   checked={typeUser === "legal"}
                   onChange={() => dispatch(setUser("legal"))}
-                  className="appearance-none w-5 h-5 rounded-full border-2 border-zinc-500 dark:border-amber-400 relative transition-all duration-300 checked:border-zinc-900 dark:checked:border-amber-600 before:content-['\2713'] before:absolute before:inset-0  before:flex before:items-center before:justify-center before:text-xs before:font-bold before:bg-zinc-900 dark:before:bg-amber-600 before:text-white before:rounded-full before:opacity-0 checked:before:opacity-100"
+                  className="appearance-none w-5 h-5 rounded-full border-2 border-sky-400 relative transition-all duration-300 checked:border-sky-600 before:content-['\2713'] before:absolute before:inset-0  before:flex before:items-center before:justify-center before:text-xs before:font-bold before:bg-sky-600 before:text-white before:rounded-full before:opacity-0 checked:before:opacity-100"
                 />
                 حقوقی
               </label>
@@ -185,7 +185,7 @@ export default function Signup({ toggleMode }: SignupProps) {
               type="submit"
               loading={loading}
               loadingText="در حال ثبت نام..."
-              className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:border-2 dark:border-amber-500 dark:hover:border-amber-500 dark:hover:bg-transparent"
+              className="w-full cursor-pointer text-white py-2 rounded-lg font-semibold transition-colors bg-gradient-to-r from-blue-500 to-sky-500 hover:from-blue-600 hover:to-sky-600"
             >
               ثبت نام
             </LoadingButton>
@@ -204,20 +204,20 @@ export default function Signup({ toggleMode }: SignupProps) {
               disabled={true}
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="w-full disabled:text-gray-400 cursor-not-allowed px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
+              className="w-full disabled:text-gray-400 cursor-not-allowed px-4 py-2 border rounded-lg dark:bg-zinc-700"
             />
             <input
               type="number"
               placeholder="کد تایید"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-0 dark:bg-zinc-700 dark:focus:ring-amber-500"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400 dark:border-0 dark:bg-zinc-700"
             />
             <LoadingButton
               type="submit"
               loading={loading}
               loadingText="در حال تایید..."
-              className="w-full bg-zinc-700 cursor-pointer text-white py-2 rounded-lg font-semibold hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:border-2 dark:border-amber-500 dark:hover:border-amber-500 dark:hover:bg-transparent"
+              className="w-full cursor-pointer text-white py-2 rounded-lg font-semibold transition-colors bg-gradient-to-r from-blue-500 to-sky-500 hover:from-blue-600 hover:to-sky-600"
             >
               تایید کد
             </LoadingButton>
@@ -226,7 +226,7 @@ export default function Signup({ toggleMode }: SignupProps) {
                 type="button"
                 onClick={handleResend}
                 disabled={!resendAllowed}
-                className="w-full bg-zinc-700 text-white py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-900 transition-colors dark:bg-amber-500 dark:hover:bg-amber-600"
+                className="w-full text-white py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors bg-gradient-to-r from-blue-500 to-sky-500 hover:from-blue-600 hover:to-sky-600"
               >
                 ارسال مجدد کد
               </button>
@@ -242,7 +242,7 @@ export default function Signup({ toggleMode }: SignupProps) {
           قبلا ثبت نام کرده اید؟
           <span
             onClick={toggleMode}
-            className="text-zinc-900 dark:text-amber-400 font-bold cursor-pointer transition-colors hover:text-zinc-600 dark:hover:text-amber-600 hover:underline"
+            className="text-sky-400 font-bold cursor-pointer transition-colors hover:text-sky-600 hover:underline"
           >
             ورود
           </span>
